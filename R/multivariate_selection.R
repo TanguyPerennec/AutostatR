@@ -57,13 +57,11 @@ multivariate_selection <-
       models_test <- function(model,
                               y,
                               var_diff,
-                              ...)
-      {
+                              ...){
 
          # Get the formula of the model to compare from the model and the variable that differ
          formule_diff_terms <- attr(model$terms,"term.labels")
-         if (var_diff %in% formule_diff_terms)
-         {
+         if (var_diff %in% formule_diff_terms){
             formule_diff_terms <- formule_diff_terms[formule_diff_terms != var_diff]
          }else {
             formule_diff_terms <- c(formule_diff_terms,var_diff)
@@ -102,28 +100,22 @@ multivariate_selection <-
 
       # BACKWARD ELIMINATION
       ##############################
-      if (grepl("backward",method))
-      {
+      if (grepl("backward",method)) {
          #Determination of the principal factor (specified or the variable for which the deviance is the smallest)
-         if (!is.logical(principal_factor))
-         {
+         if (!is.logical(principal_factor)) {
             if (!(principal_factor %in% explicatives))
                stop("the principal factor must be in 'explicatives'")
             if (verbose)
                cat("\nFirst variable set is <",principal_factor,">\n because it is the principal factor specifed")
             principal_factor -> keep[length(keep) + 1]
          }
-         if (is.logical(principal_factor))
-         {
+         if (is.logical(principal_factor)) {
             # Determination of p-val with anova for all variables
             models1 <- data.frame(row.names = explicatives_multi_test)
-            for (j in seq(explicatives_multi_test))
-            {
-               if (j == 1)
-               {
+            for (j in seq(explicatives_multi_test)){
+               if (j == 1){
                   model1 <- stats::glm(DF[ ,y]~1, family = "binomial")
-               } else
-               {
+               } else {
                   model1 <- stats::glm(DF[ ,y]~DF[, explicatives_multi_test[j]], family = "binomial")
                }
                models1$deviance[j] <- model1$deviance
@@ -141,8 +133,7 @@ multivariate_selection <-
 
 
          # Determination of interactions with the principal factor
-         if (check_interactions)
-         {
+         if (check_interactions) {
             interact_table <-  data.frame(row.names = explicatives_remains)
             for (i in seq(explicatives_remains))
             {
@@ -167,15 +158,11 @@ multivariate_selection <-
 
 
          # Backward selection for interaction
-         if (check_interactions)
-         {
-            if (length(interactives_remains) > 0)
-            {
-               for (i in seq(interactives_remains))
-               {
+         if (check_interactions) {
+            if (length(interactives_remains) > 0) {
+               for (i in seq(interactives_remains)) {
                   formule <- formulation(DF[,c(y,explicatives_remains)])
-                  for (i in seq(interactives_remains))
-                  {
+                  for (i in seq(interactives_remains)) {
                      interactive_formule <-
                         ifelse(i == 1, interactives_remains[i], paste0("+", interactives_remains[i]))
                   }

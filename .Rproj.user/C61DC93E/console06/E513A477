@@ -144,3 +144,39 @@ error: le spécificateur de chemin 'minor changes with syntax and confirmation t
  create mode 100644 tableau2.xlsx
  create mode 100644 tableau3.xlsx
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit - [Kam "change p for LRT"
+[main 0e25b2d] change p for LRT
+ 6 files changed, 28 insertions(+), 31 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPerennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 44, fait.
+Décompte des objets:   2% (1/44)Décompte des objets:   4% (2/44)Décompte des objets:   6% (3/44)Décompte des objets:   9% (4/44)Décompte des objets:  11% (5/44)Décompte des objets:  13% (6/44)Décompte des objets:  15% (7/44)Décompte des objets:  18% (8/44)Décompte des objets:  20% (9/44)Décompte des objets:  22% (10/44)Décompte des objets:  25% (11/44)Décompte des objets:  27% (12/44)Décompte des objets:  29% (13/44)Décompte des objets:  31% (14/44)Décompte des objets:  34% (15/44)Décompte des objets:  36% (16/44)Décompte des objets:  38% (17/44)Décompte des objets:  40% (18/44)Décompte des objets:  43% (19/44)Décompte des objets:  45% (20/44)Décompte des objets:  47% (21/44)Décompte des objets:  50% (22/44)Décompte des objets:  52% (23/44)Décompte des objets:  54% (24/44)Décompte des objets:  56% (25/44)Décompte des objets:  59% (26/44)Décompte des objets:  61% (27/44)Décompte des objets:  63% (28/44)Décompte des objets:  65% (29/44)Décompte des objets:  68% (30/44)Décompte des objets:  70% (31/44)Décompte des objets:  72% (32/44)Décompte des objets:  75% (33/44)Décompte des objets:  77% (34/44)Décompte des objets:  79% (35/44)Décompte des objets:  81% (36/44)Décompte des objets:  84% (37/44)Décompte des objets:  86% (38/44)Décompte des objets:  88% (39/44)Décompte des objets:  90% (40/44)Décompte des objets:  93% (41/44)Décompte des objets:  95% (42/44)Décompte des objets:  97% (43/44)Décompte des objets: 100% (44/44)Décompte des objets: 100% (44/44), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   3% (1/28)Compression des objets:   7% (2/28)Compression des objets:  10% (3/28)Compression des objets:  14% (4/28)Compression des objets:  17% (5/28)Compression des objets:  21% (6/28)Compression des objets:  25% (7/28)Compression des objets:  28% (8/28)Compression des objets:  32% (9/28)Compression des objets:  35% (10/28)Compression des objets:  39% (11/28)Compression des objets:  42% (12/28)Compression des objets:  46% (13/28)Compression des objets:  50% (14/28)Compression des objets:  53% (15/28)Compression des objets:  57% (16/28)Compression des objets:  60% (17/28)Compression des objets:  64% (18/28)Compression des objets:  67% (19/28)Compression des objets:  71% (20/28)Compression des objets:  75% (21/28)Compression des objets:  78% (22/28)Compression des objets:  82% (23/28)Compression des objets:  85% (24/28)Compression des objets:  89% (25/28)Compression des objets:  92% (26/28)Compression des objets:  96% (27/28)Compression des objets: 100% (28/28)Compression des objets: 100% (28/28), fait.
+Écriture des objets:   3% (1/28)Écriture des objets:   7% (2/28)Écriture des objets:  10% (3/28)Écriture des objets:  14% (4/28)Écriture des objets:  17% (5/28)Écriture des objets:  21% (6/28)Écriture des objets:  25% (7/28)Écriture des objets:  28% (8/28)Écriture des objets:  32% (9/28)Écriture des objets:  35% (10/28)Écriture des objets:  39% (11/28)Écriture des objets:  42% (12/28)Écriture des objets:  46% (13/28)Écriture des objets:  50% (14/28)Écriture des objets:  57% (16/28)Écriture des objets:  60% (17/28)Écriture des objets:  64% (18/28)Écriture des objets:  67% (19/28)Écriture des objets:  75% (21/28)Écriture des objets:  78% (22/28)Écriture des objets:  82% (23/28)Écriture des objets:  85% (24/28)Écriture des objets:  89% (25/28)Écriture des objets:  92% (26/28)Écriture des objets:  96% (27/28)Écriture des objets: 100% (28/28)Écriture des objets: 100% (28/28), 12.38 Kio | 3.09 Mio/s, fait.
+Total 28 (delta 18), réutilisés 0 (delta 0)
+fatal: L'hôte distant a fermé la connexion de manière inattendue
+fatal: L'hôte distant a fermé la connexion de manière inattendue
+Everything up-to-date
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est en avance sur 'origin/main' de 2 commits.
+  (utilisez "git push" pour publier vos commits locaux)
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         R/multivariate_selection.R[m
+	[31mmodifié :         R/utils.R[m
+
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+	[31mtableau.xlsx[m
+	[31mtableau_all.xlsx[m
+	[31mtableau_reg2.xlsx[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
