@@ -49,10 +49,6 @@ reglog <- function(DF,
             ...)
    {
 
-   #To ignore warnings during usage
-   options(warn = -1)
-   options("getSymbols.warning4.0" = FALSE)
-
 
    ##################################################
    #    Arguments verification / transformation     #
@@ -96,15 +92,13 @@ reglog <- function(DF,
    if (is.data.frame(DF) || is.matrix(DF)){
       DF <- as.data.frame(DF,row.names = NULL)
       DF <- DF[,c(y,explicatives)]
-      if (!setequal(make.names(colnames(DF)),colnames(DF)))
-      {
+      if (!setequal(make.names(colnames(DF)),colnames(DF))){
          message("column names are not valid, 'make.names()' is used to have valid colnames")
          make.names(colnames(DF)) -> colnames(DF)
          make.names(explicatives) -> explicatives
          make.names(y) -> y
       }
-   } else
-   {
+   } else {
       stop("No dataframe has been provided. Make sure 'DF' is a dataframe, a tibble or a matrix")
    }
 
@@ -123,11 +117,10 @@ reglog <- function(DF,
    confirmation -> confirmation2
 
 
-   if (!is.logical(keep))
-   {
+   if (!is.logical(keep)) {
       if (!is.character(keep) & !is.vector(keep))
          stop("keep should be a vector of character or characters")
-      if (FALSE %in% (keep %in% explicatives))
+      if (!any(keep %in% explicatives))
          stop("some of keep elements are not in 'explicatives'")
    }
    keep -> keep2
@@ -149,7 +142,7 @@ reglog <- function(DF,
      +-----------------------------+
                        \n")
 
-      DF <- data_prep_complete(DF,y,verbose = TRUE,keep = keep2,...)
+      DF <- data_prep_complete(DF,y,...)
 
       ##################################################
 

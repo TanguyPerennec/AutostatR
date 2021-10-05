@@ -1,4 +1,3 @@
-
 #' Colnames preparation
 #'
 #' @param object : vector of character or dataframe
@@ -8,8 +7,7 @@
 #' @export
 #'
 #' @examples
-colnames_prep <- function(object,type="make.names")
-{
+colnames_prep <- function(object,type="make.names"){
 
    # Verification
    if (is.data.frame(object)) {
@@ -385,16 +383,13 @@ NA_rm_for_glm <- function(DF,
 checkforfactor <-
    function(DF,
             vars = colnames(DF),
-            confirmation = TRUE,
+            confirmation = F,
             verbose = TRUE)
 {
    DF <- as.data.frame(DF)
-   for (var_i in length(vars):1)
-   {
+   for (var_i in length(vars):1) {
       var <- vars[var_i]
-
-      if (is.numeric(DF[,var]))
-      {
+      if (is.numeric(DF[,var])) {
          as.factor(DF[,var]) -> DF[,var]
          if (length(levels(DF[, var])) < 2)
          {#removes factor with only one level
@@ -615,8 +610,7 @@ data_prep_complete <- function(DF,
    explicatives <- colnames(DF)[colnames(DF) != y]
    DF <- as.data.frame(DF)
 
-   if (verbose)
-   {
+   if (verbose) {
       cat("\n",(nrow(DF1) - nrow(DF))," rows deleted (",round(100*(nrow(DF1) - nrow(DF))/(nrow(DF1)),0),"%)","...........",nrow(DF),"rows remaining")
       cat("\n\nData cleaning is over.\n\nExplicatives variables remaining are :\n",explicatives,
           "\n\nIt remains ",length(explicatives),"variables and ",nrow(DF),"observations")

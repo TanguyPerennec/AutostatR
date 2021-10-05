@@ -454,7 +454,7 @@ table1 <- function(DF,
                              paste0(substr(x, 1, 40), "...")
                           } else{x}
                        })
-
+        print(varname)
          #### Transformation into factor and mutation if needed
          relevel(as.factor(as.character(var)),as.character(X[6])) -> var
          var[var == "NA"] <- NA
