@@ -15,8 +15,7 @@ formulation <- function(object,y=NULL){
       {
          object <- as.data.frame(object)
          y <- colnames(object)[1]
-      }else
-      {
+      }else {
          y <- object[1]
       }
    }
