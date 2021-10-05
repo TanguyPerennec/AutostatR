@@ -25,3 +25,91 @@ drwxrwxr-x 4 tanguy tanguy  4096 oct.   5 10:05 [01;34m.Rproj.user[0m/
  create mode 100644 .gitignore
  create mode 100644 DESCRIPTION
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -ma "check + doc 1"
+error: le spécificateur de chemin 'check + doc 1' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -ma "check + doc 1"[1P
+[main 3c018b5] check + doc 1
+ 33 files changed, 701 insertions(+), 32 deletions(-)
+ create mode 100644 NAMESPACE
+ create mode 100644 man/NA_rm_for_glm.Rd
+ create mode 100644 man/NA_separation.Rd
+ create mode 100644 man/check_dichotomous.Rd
+ create mode 100644 man/checkforfactor.Rd
+ create mode 100644 man/colnames_prep.Rd
+ create mode 100644 man/complete_separation.Rd
+ create mode 100644 man/data_prep_complete.Rd
+ create mode 100644 man/detect_outliers.Rd
+ create mode 100644 man/excel.Rd
+ create mode 100644 man/format_data.Rd
+ create mode 100644 man/formulation.Rd
+ create mode 100644 man/get_explicatives_matrix.Rd
+ create mode 100644 man/logit.Rd
+ create mode 100644 man/multivariate_selection.Rd
+ create mode 100644 man/progressbar.Rd
+ create mode 100644 man/propensity.Rd
+ create mode 100644 man/reglog.Rd
+ create mode 100644 man/stability_proportion.Rd
+ create mode 100644 man/stability_select_meaningful.Rd
+ create mode 100644 man/survivor.Rd
+ create mode 100644 man/table1.Rd
+ create mode 100644 man/tobinary.Rd
+ create mode 100644 man/variables_means.Rd
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est en avance sur 'origin/main' de 3 commits.
+  (utilisez "git push" pour publier vos commits locaux)
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git statuscommit -m "check + doc 1"status[Kcommit -m "check + doc 1"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kpush
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPER  erennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 77, fait.
+Décompte des objets:   1% (1/77)Décompte des objets:   2% (2/77)Décompte des objets:   3% (3/77)Décompte des objets:   5% (4/77)Décompte des objets:   6% (5/77)Décompte des objets:   7% (6/77)Décompte des objets:   9% (7/77)Décompte des objets:  10% (8/77)Décompte des objets:  11% (9/77)Décompte des objets:  12% (10/77)Décompte des objets:  14% (11/77)Décompte des objets:  15% (12/77)Décompte des objets:  16% (13/77)Décompte des objets:  18% (14/77)Décompte des objets:  19% (15/77)Décompte des objets:  20% (16/77)Décompte des objets:  22% (17/77)Décompte des objets:  23% (18/77)Décompte des objets:  24% (19/77)Décompte des objets:  25% (20/77)Décompte des objets:  27% (21/77)Décompte des objets:  28% (22/77)Décompte des objets:  29% (23/77)Décompte des objets:  31% (24/77)Décompte des objets:  32% (25/77)Décompte des objets:  33% (26/77)Décompte des objets:  35% (27/77)Décompte des objets:  36% (28/77)Décompte des objets:  37% (29/77)Décompte des objets:  38% (30/77)Décompte des objets:  40% (31/77)Décompte des objets:  41% (32/77)Décompte des objets:  42% (33/77)Décompte des objets:  44% (34/77)Décompte des objets:  45% (35/77)Décompte des objets:  46% (36/77)Décompte des objets:  48% (37/77)Décompte des objets:  49% (38/77)Décompte des objets:  50% (39/77)Décompte des objets:  51% (40/77)Décompte des objets:  53% (41/77)Décompte des objets:  54% (42/77)Décompte des objets:  55% (43/77)Décompte des objets:  57% (44/77)Décompte des objets:  58% (45/77)Décompte des objets:  59% (46/77)Décompte des objets:  61% (47/77)Décompte des objets:  62% (48/77)Décompte des objets:  63% (49/77)Décompte des objets:  64% (50/77)Décompte des objets:  66% (51/77)Décompte des objets:  67% (52/77)Décompte des objets:  68% (53/77)Décompte des objets:  70% (54/77)Décompte des objets:  71% (55/77)Décompte des objets:  72% (56/77)Décompte des objets:  74% (57/77)Décompte des objets:  75% (58/77)Décompte des objets:  76% (59/77)Décompte des objets:  77% (60/77)Décompte des objets:  79% (61/77)Décompte des objets:  80% (62/77)Décompte des objets:  81% (63/77)Décompte des objets:  83% (64/77)Décompte des objets:  84% (65/77)Décompte des objets:  85% (66/77)Décompte des objets:  87% (67/77)Décompte des objets:  88% (68/77)Décompte des objets:  89% (69/77)Décompte des objets:  90% (70/77)Décompte des objets:  92% (71/77)Décompte des objets:  93% (72/77)Décompte des objets:  94% (73/77)Décompte des objets:  96% (74/77)Décompte des objets:  97% (75/77)Décompte des objets:  98% (76/77)Décompte des objets: 100% (77/77)Décompte des objets: 100% (77/77), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   1% (1/62)Compression des objets:   3% (2/62)Compression des objets:   4% (3/62)Compression des objets:   6% (4/62)Compression des objets:   8% (5/62)Compression des objets:   9% (6/62)Compression des objets:  11% (7/62)Compression des objets:  12% (8/62)Compression des objets:  14% (9/62)Compression des objets:  16% (10/62)Compression des objets:  17% (11/62)Compression des objets:  19% (12/62)Compression des objets:  20% (13/62)Compression des objets:  22% (14/62)Compression des objets:  24% (15/62)Compression des objets:  25% (16/62)Compression des objets:  27% (17/62)Compression des objets:  29% (18/62)Compression des objets:  30% (19/62)Compression des objets:  32% (20/62)Compression des objets:  33% (21/62)Compression des objets:  35% (22/62)Compression des objets:  37% (23/62)Compression des objets:  38% (24/62)Compression des objets:  40% (25/62)Compression des objets:  41% (26/62)Compression des objets:  43% (27/62)Compression des objets:  45% (28/62)Compression des objets:  46% (29/62)Compression des objets:  48% (30/62)Compression des objets:  50% (31/62)Compression des objets:  51% (32/62)Compression des objets:  53% (33/62)Compression des objets:  54% (34/62)Compression des objets:  56% (35/62)Compression des objets:  58% (36/62)Compression des objets:  59% (37/62)Compression des objets:  61% (38/62)Compression des objets:  62% (39/62)Compression des objets:  64% (40/62)Compression des objets:  66% (41/62)Compression des objets:  67% (42/62)Compression des objets:  69% (43/62)Compression des objets:  70% (44/62)Compression des objets:  72% (45/62)Compression des objets:  74% (46/62)Compression des objets:  75% (47/62)Compression des objets:  77% (48/62)Compression des objets:  79% (49/62)Compression des objets:  80% (50/62)Compression des objets:  82% (51/62)Compression des objets:  83% (52/62)Compression des objets:  85% (53/62)Compression des objets:  87% (54/62)Compression des objets:  88% (55/62)Compression des objets:  90% (56/62)Compression des objets:  91% (57/62)Compression des objets:  93% (58/62)Compression des objets:  95% (59/62)Compression des objets:  96% (60/62)Compression des objets:  98% (61/62)Compression des objets: 100% (62/62)Compression des objets: 100% (62/62), fait.
+Écriture des objets:   1% (1/68)Écriture des objets:   2% (2/68)Écriture des objets:   4% (3/68)Écriture des objets:   5% (4/68)Écriture des objets:   7% (5/68)Écriture des objets:   8% (6/68)Écriture des objets:  10% (7/68)Écriture des objets:  11% (8/68)Écriture des objets:  13% (9/68)Écriture des objets:  16% (11/68)Écriture des objets:  17% (12/68)Écriture des objets:  19% (13/68)Écriture des objets:  20% (14/68)Écriture des objets:  22% (15/68)Écriture des objets:  23% (16/68)Écriture des objets:  25% (17/68)Écriture des objets:  26% (18/68)Écriture des objets:  27% (19/68)Écriture des objets:  29% (20/68)Écriture des objets:  30% (21/68)Écriture des objets:  32% (22/68)Écriture des objets:  33% (23/68)Écriture des objets:  35% (24/68)Écriture des objets:  36% (25/68)Écriture des objets:  38% (26/68)Écriture des objets:  39% (27/68)Écriture des objets:  42% (29/68)Écriture des objets:  44% (30/68)Écriture des objets:  45% (31/68)Écriture des objets:  47% (32/68)Écriture des objets:  48% (33/68)Écriture des objets:  50% (34/68)Écriture des objets:  51% (35/68)Écriture des objets:  52% (36/68)Écriture des objets:  54% (37/68)Écriture des objets:  55% (38/68)Écriture des objets:  57% (39/68)Écriture des objets:  58% (40/68)Écriture des objets:  60% (41/68)Écriture des objets:  61% (42/68)Écriture des objets:  63% (43/68)Écriture des objets:  64% (44/68)Écriture des objets:  66% (45/68)Écriture des objets:  67% (46/68)Écriture des objets:  69% (47/68)Écriture des objets:  70% (48/68)Écriture des objets:  72% (49/68)Écriture des objets:  73% (50/68)Écriture des objets:  75% (51/68)Écriture des objets:  76% (52/68)Écriture des objets:  77% (53/68)Écriture des objets:  79% (54/68)Écriture des objets:  80% (55/68)Écriture des objets:  82% (56/68)Écriture des objets:  83% (57/68)Écriture des objets:  85% (58/68)Écriture des objets:  86% (59/68)Écriture des objets:  88% (60/68)Écriture des objets:  89% (61/68)Écriture des objets:  91% (62/68)Écriture des objets:  92% (63/68)Écriture des objets:  94% (64/68)Écriture des objets:  95% (65/68)Écriture des objets:  97% (66/68)Écriture des objets:  98% (67/68)Écriture des objets: 100% (68/68)Écriture des objets: 100% (68/68), 20.32 Kio | 2.26 Mio/s, fait.
+Total 68 (delta 17), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/17)[Kremote: Resolving deltas:   5% (1/17)[Kremote: Resolving deltas:  11% (2/17)[Kremote: Resolving deltas:  17% (3/17)[Kremote: Resolving deltas:  23% (4/17)[Kremote: Resolving deltas:  29% (5/17)[Kremote: Resolving deltas:  35% (6/17)[Kremote: Resolving deltas:  41% (7/17)[Kremote: Resolving deltas:  47% (8/17)[Kremote: Resolving deltas:  52% (9/17)[Kremote: Resolving deltas:  58% (10/17)[Kremote: Resolving deltas:  64% (11/17)[Kremote: Resolving deltas:  70% (12/17)[Kremote: Resolving deltas:  76% (13/17)[Kremote: Resolving deltas:  82% (14/17)[Kremote: Resolving deltas:  88% (15/17)[Kremote: Resolving deltas:  94% (16/17)[Kremote: Resolving deltas: 100% (17/17)[Kremote: Resolving deltas: 100% (17/17), completed with 8 local objects.[K
+To https://github.com/TanguyPerennec/AutostatR.git
+   3049ade..3c018b5  main -> main
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est à jour avec 'origin/main'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git pull
+remote: Enumerating objects: 26, done.[K
+remote: Counting objects:   3% (1/26)[Kremote: Counting objects:   7% (2/26)[Kremote: Counting objects:  11% (3/26)[Kremote: Counting objects:  15% (4/26)[Kremote: Counting objects:  19% (5/26)[Kremote: Counting objects:  23% (6/26)[Kremote: Counting objects:  26% (7/26)[Kremote: Counting objects:  30% (8/26)[Kremote: Counting objects:  34% (9/26)[Kremote: Counting objects:  38% (10/26)[Kremote: Counting objects:  42% (11/26)[Kremote: Counting objects:  46% (12/26)[Kremote: Counting objects:  50% (13/26)[Kremote: Counting objects:  53% (14/26)[Kremote: Counting objects:  57% (15/26)[Kremote: Counting objects:  61% (16/26)[Kremote: Counting objects:  65% (17/26)[Kremote: Counting objects:  69% (18/26)[Kremote: Counting objects:  73% (19/26)[Kremote: Counting objects:  76% (20/26)[Kremote: Counting objects:  80% (21/26)[Kremote: Counting objects:  84% (22/26)[Kremote: Counting objects:  88% (23/26)[Kremote: Counting objects:  92% (24/26)[Kremote: Counting objects:  96% (25/26)[Kremote: Counting objects: 100% (26/26)[Kremote: Counting objects: 100% (26/26), done.[K
+remote: Compressing objects:  25% (1/4)[Kremote: Compressing objects:  50% (2/4)[Kremote: Compressing objects:  75% (3/4)[Kremote: Compressing objects: 100% (4/4)[Kremote: Compressing objects: 100% (4/4), done.[K
+Dépaquetage des objets:   5% (1/17)Dépaquetage des objets:  11% (2/17)Dépaquetage des objets:  17% (3/17)Dépaquetage des objets:  23% (4/17)Dépaquetage des objets:  29% (5/17)Dépaquetage des objets:  35% (6/17)Dépaquetage des objets:  41% (7/17)remote: Total 17 (delta 12), reused 17 (delta 12), pack-reused 0[K
+Dépaquetage des objets:  47% (8/17)Dépaquetage des objets:  52% (9/17)Dépaquetage des objets:  58% (10/17)Dépaquetage des objets:  64% (11/17)Dépaquetage des objets:  70% (12/17)Dépaquetage des objets:  76% (13/17)Dépaquetage des objets:  82% (14/17)Dépaquetage des objets:  88% (15/17)Dépaquetage des objets:  94% (16/17)Dépaquetage des objets: 100% (17/17)Dépaquetage des objets: 100% (17/17), 13.22 Kio | 152.00 Kio/s, fait.
+Depuis https://github.com/TanguyPerennec/AutostatR
+   3c018b5..817c85b  main       -> origin/main
+Mise à jour 3c018b5..817c85b
+Fast-forward
+ .Rbuildignore                  |   3 [32m+[m
+ DESCRIPTION                    |   4 [32m+[m[31m-[m
+ LICENSE                        | 661 [31m-----------------------------------------------------------------------------------------[m
+ LICENSE.md                     | 659 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ R/reglog.R                     |   9 [32m+[m[31m-[m
+ R/table1.R                     |   2 [32m+[m[31m-[m
+ R/utils.R                      |   3 [32m+[m[31m-[m
+ man/get_explicatives_matrix.Rd |   4 [32m+[m[31m-[m
+ man/reglog.Rd                  |  14 [32m+[m[31m-[m
+ 9 files changed, 690 insertions(+), 669 deletions(-)
+ create mode 100644 .Rbuildignore
+ delete mode 100644 LICENSE
+ create mode 100644 LICENSE.md
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "reglog [K[K[K[K[K[K[Krephrase reglog"

@@ -70,13 +70,10 @@ reglog <- function(DF,
 
    # Removes explicatives not in DF
    explicatives_out_DF <- explicatives[!(explicatives %in% colnames(DF))]
-   if (length(explicatives_out_DF) > 0)
-   {
+   if (length(explicatives_out_DF) > 0){
       msg_error <- explicatives_out_DF[1]
-      if (length(explicatives_out_DF) > 1)
-      {
-         for (expl_out_DF in explicatives_out_DF[-1])
-         {
+      if (length(explicatives_out_DF) > 1){
+         for (expl_out_DF in explicatives_out_DF[-1]){
             msg_error <- paste0(msg_error, ", ", expl_out_DF)
          }
          msg_error <- paste0(msg_error, " are not part of DF columns")
@@ -88,8 +85,7 @@ reglog <- function(DF,
    }
 
    # Removes y from explicatives
-   if (y %in% explicatives)
-   {
+   if (y %in% explicatives) {
       message('y is part of "explicatives" and is removed from it')
       explicatives <- explicatives[explicatives != y]
    }
@@ -97,8 +93,7 @@ reglog <- function(DF,
 
 
    ## Dataframe
-   if (is.data.frame(DF) || is.matrix(DF) || is.tbl(DF))
-   {
+   if (is.data.frame(DF) || is.matrix(DF)){
       DF <- as.data.frame(DF,row.names = NULL)
       DF <- DF[,c(y,explicatives)]
       if (!setequal(make.names(colnames(DF)),colnames(DF)))
