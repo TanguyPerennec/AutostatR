@@ -2,4 +2,21 @@
 ]0;/home/tanguy(base) ]0;tanguy@tanguy-MacBookAir: ~[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~[00m$ cd R/AutostatR
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
 fatal: ni ceci ni aucun de ses répertoires parents n'est un dépôt git : .git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ touch DESCRIPTION.tk[Kxt
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ 
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ touch DESCRIPTION
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ ll
+total 72
+drwxrwxr-x 6 tanguy tanguy  4096 oct.   5 10:17 [0m[01;34m.[0m/
+drwxrwxr-x 9 tanguy tanguy  4096 oct.   5 09:36 [01;34m..[0m/
+drwxr-xr-x 4 tanguy tanguy  4096 oct.   5 10:16 [01;34mAutostatR[0m/
+-rw-rw-r-- 1 tanguy tanguy   352 oct.   5 10:14 AutostatR.Rproj
+drwxrwxr-x 8 tanguy tanguy  4096 oct.   5 10:16 [01;34m.git[0m/
+-rw-rw-r-- 1 tanguy tanguy    40 oct.   5 10:16 .gitignore
+-rw-rw-r-- 1 tanguy tanguy 34523 oct.   5 09:39 LICENSE
+drwxrwxr-x 2 tanguy tanguy  4096 oct.   5 09:40 [01;34mR[0m/
+-rw-rw-r-- 1 tanguy tanguy    11 oct.   5 09:39 README.md
+drwxrwxr-x 4 tanguy tanguy  4096 oct.   5 10:05 [01;34m.Rproj.user[0m/
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ touch DESCRIPTION
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgit add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "add package structure'[K"

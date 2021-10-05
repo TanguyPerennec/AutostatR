@@ -1,0 +1,14 @@
+Package: AutostatR
+Title: Perform biostatistics
+Version: 1.1
+Authors@R: person("Tanguy", "Perennec", email = "perennec.tanguy@gmail.com",
+                  role = c("aut", "cre"))
+Description: Perform biostatistics
+Depends: R (>= 3.1.0)
+License: GNU AGPLv3
+LazyData: true
+Imports:
+    stats,
+    flextable,
+    pbapply,
+    MASS

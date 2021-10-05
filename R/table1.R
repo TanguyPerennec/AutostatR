@@ -18,6 +18,8 @@
 #' @import flextable
 #' @import RVAideMemoire
 #' @import MASS
+#' @import pbapply
+#' @import stats
 table1 <- function(DF,
                    explicatives,
                    y = NULL,
