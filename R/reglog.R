@@ -188,8 +188,8 @@ reglog <- function(DF,
    rownames(rslt) <- c("",vect_explicative)
 
    getinfo_glm <- function(mod,k,var) {
-      OR <- round(exp(as.numeric(mod$coefficients[k + 1])), round) # logit exponential
-      pval <- anova(mod, test = "LRT")$Pr[k + 1]
+      OR <- round(exp(as.numeric(mod$coefficients[k + 1])),round)
+      pval <- roundp(anova(mod, test = "LRT")$Pr[k + 1],round)
       IC <- paste0(round(suppressMessages(exp(confint(mod)))[k + 1, ], round),collapse = ";")
       IC <- paste0("[",IC,"]")
       name_var <- var
@@ -307,16 +307,14 @@ reglog <- function(DF,
    for (OR_var in names(OR)[-1]) {#-1 remove intercept
       i <- i + 1
       n_ligne <- match(OR_var,rownames(rslt))
-      p <- round(as.numeric(pval[i + 1]), round)
-      p <- ifelse(p == 0, "<0.001", p)
+      p <- roundp(as.numeric(pval[i + 1]), round)
       IC_paste <- paste0("[",IC[i + 1, 1], ";", IC[i + 1, 2],"]")
       rslt[n_ligne, 5:7] <- c(signif(OR[i + 1], round), IC_paste, p)
    }
 
    for (n in 1:length(rslt[-1, 4])) {
       p = as.numeric(rslt[n + 1, 4])
-      round(p, round) -> p
-      ifelse(p == 0, "<0.001", p) -> rslt[n + 1, 4]
+      roundp(p, round) -> rslt[n + 1, 4]
    }
 
 
