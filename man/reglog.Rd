@@ -33,17 +33,29 @@ Takes all columns but y from the dataframe if kept empty.}
 
 \item{alpha}{num : significance threeshold used to delete non-significant variables in the multivariate model.}
 
+\item{dataprep}{}
+
 \item{verbose}{logical : if TRUE, explainations are displayed in the console while running the function.}
 
 \item{alpha_max}{num : maximum threeshold used to select the minimum multivariate variables wanted.}
 
 \item{round}{num : number of digits to display in the final table.}
 
+\item{rowstimevariable}{}
+
+\item{confirmation}{}
+
 \item{keep}{all the variables that should be kept in the multivariate results}
 
 \item{exit}{specify where do you want to display the results : console (the default), excel (in a results.xlsx file), html (using kable)}
 
-\item{method}{the method that will be used to select variables in the multivariate model.The default method is the backward elimination. See 'details' section for more informations.}
+\item{stability}{}
+
+\item{equation}{}
+
+\item{title}{}
+
+\item{...}{}
 }
 \value{
 reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model

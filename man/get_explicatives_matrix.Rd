@@ -16,13 +16,15 @@ get_explicatives_matrix(
 \arguments{
 \item{explicatives}{vector}
 
+\item{DF}{dataframe}
+
 \item{names}{vector: names of the explicatives}
 
 \item{complete_names}{vector :}
 
 \item{one_lines}{vector of boolean : whether to display one or two lines for 2 levels factors}
 
-\item{data}{}
+\item{make.names}{if names should be changed}
 }
 \value{
 

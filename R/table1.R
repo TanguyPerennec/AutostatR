@@ -779,5 +779,5 @@ table1 <- function(DF,
    }
 
    version = paste0('version : ', version_pkg)
-   return(list(version,rslt,text_footer))
+   return(list("version" = version,"methods" = text_footer,"table" = rslt))
 }

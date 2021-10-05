@@ -71,7 +71,8 @@ get_y_vector <- function(y,
 #' @param names vector: names of the explicatives
 #' @param complete_names vector :
 #' @param one_lines vector of boolean : whether to display one or two lines for 2 levels factors
-#' @param data
+#' @param DF dataframe
+#' @param make.names if names should be changed
 #'
 #' @return
 #' @export

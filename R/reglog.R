@@ -7,14 +7,19 @@
 #' @param y character : name of the variable to explain
 #' @param explicatives character vector : variables that should explain y in the logistic regression.
 #' Takes all columns but y from the dataframe if kept empty.
-#' @param method the method that will be used to select variables in the multivariate model.The default method is the backward elimination. See 'details' section for more informations.
 #' @param alpha num : significance threeshold used to delete non-significant variables in the multivariate model.
 #' @param verbose logical : if TRUE, explainations are displayed in the console while running the function.
 #' @param alpha_max num : maximum threeshold used to select the minimum multivariate variables wanted.
 #' @param round num : number of digits to display in the final table.
 #' @param keep all the variables that should be kept in the multivariate results
 #' @param exit specify where do you want to display the results : console (the default), excel (in a results.xlsx file), html (using kable)
-#'
+#' @param dataprep 
+#' @param rowstimevariable 
+#' @param confirmation 
+#' @param stability 
+#' @param equation 
+#' @param title 
+#' @param ... 
 #'
 #' @return reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model
 #' @export
