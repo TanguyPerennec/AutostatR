@@ -97,8 +97,7 @@ reglog <- function(DF,
 
 
    ## Dataframe
-   if (is.data.frame(DF) || is.matrix(DF) || is.tbl(DF))
-   {
+   if (is.data.frame(DF) || is.matrix(DF)){
       DF <- as.data.frame(DF,row.names = NULL)
       DF <- DF[,c(y,explicatives)]
       if (!setequal(make.names(colnames(DF)),colnames(DF)))

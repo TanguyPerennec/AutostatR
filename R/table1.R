@@ -205,6 +205,7 @@ table1 <- function(DF,
    lignes <- pblapply(as.data.frame(t(explicatives_matrix),row.names = colnames(explicatives_matrix)), function(X){
       varname <- as.character(X[1])
       var <- DF_without_y_and_all[,varname]
+      print(varname)
       ligne1 <- as.character(X[2])
       sign <- NULL # store a note if a special test is performed (fischer, Wilcoxon...)
       if (by_line) {
@@ -456,8 +457,9 @@ table1 <- function(DF,
                        })
 
          #### Transformation into factor and mutation if needed
-         relevel(as.factor(as.character(var)),as.character(X[6])) -> var
          var[var == "NA"] <- NA
+         relevel(as.factor(as.character(var)),as.character(X[6])) -> var
+
 
          # if there is more than 'mutation' modalities, the last modalities are grouped in 'others' modality
          if (length(levels(var)) >= mutation) {
