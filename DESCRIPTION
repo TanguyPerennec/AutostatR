@@ -5,7 +5,7 @@ Authors@R: person("Tanguy", "Perennec", email = "perennec.tanguy@gmail.com",
                   role = c("aut", "cre"))
 Description: Perform biostatistics with R console with table 1, regressions and survival models.
 Depends: R (>= 3.1.0)
-License: use_agpl_license()
+License: AGPL (>= 3)
 LazyData: true
 Imports:
     stats,
