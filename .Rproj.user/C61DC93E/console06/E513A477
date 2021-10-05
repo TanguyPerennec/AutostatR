@@ -221,3 +221,6 @@ remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[K
 To https://github.com/TanguyPerennec/AutostatR.git
    01406bc..dce748f  main -> main
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git -am "[K[K[K[K[Kcommit -ma[K[Kam "P[Kroundp pour glm"
+[main 1cb9e8b] roundp pour glm
+ 2 files changed, 24 insertions(+), 6 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "roundp pour glm"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksuppr ARG2"

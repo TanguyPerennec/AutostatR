@@ -49,11 +49,6 @@ reglog <- function(DF,
             ...)
    {
 
-
-   ##################################################
-   #    Arguments verification / transformation     #
-   ##################################################
-
    # Y
    if (missing(y))
       y <- colnames(DF)[1]
@@ -105,17 +100,13 @@ reglog <- function(DF,
 
    if (!is.logical(verbose))
       stop("'verbose' must be logical")
-   verbose -> verbose2
 
    if (!is.numeric(round) || round <= 0)
       stop("round must be numeric and positive")
-   round -> round2
 
 
    if (!is.logical(confirmation))
       stop("'confirmation' must be logical")
-   confirmation -> confirmation2
-
 
    if (!is.logical(keep)) {
       if (!is.character(keep) & !is.vector(keep))
@@ -243,8 +234,7 @@ reglog <- function(DF,
 
 
    # Variable selection
-   explicatives_multi <- multivariate_selection(DF[,c(y,explicatives)],y,keep = keep2)
-   explicatives_multi <- explicatives_multi$vars_multi
+   explicatives_multi <- multivariate_selection(DF[,c(y,explicatives)],y,keep = keep2)$vars_multi
    # Definitive model
    logit(DF[,c(y,explicatives_multi)]) -> mod_multi
    ##################################################
