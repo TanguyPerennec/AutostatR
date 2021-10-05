@@ -10,14 +10,11 @@ formulation <- function(object,y=NULL){
 
    # 1. Getting y
    #############################################
-   if (is.null(y))
-   {
-      if (is.data.frame(object) || is.matrix(object) || is.tbl(object))
-      {
+   if (is.null(y)) {
+      if (is.data.frame(object) || is.matrix(object)){
          object <- as.data.frame(object)
          y <- colnames(object)[1]
-      }else
-      {
+      }else {
          y <- object[1]
       }
    }

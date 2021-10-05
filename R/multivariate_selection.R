@@ -71,16 +71,14 @@ multivariate_selection <-
          formule_diff <- formulation(c(y,formule_diff_terms))
 
 
-         if (criteria  == "deviance")
-         {
+         if (criteria  == "deviance") {
             model2 <- stats::glm(formule_diff, data = DF, family = "binomial")
             anova_test <- anova(model, model2, test = "LRT")
             pval <- anova_test$Pr[nrow(anova_test)]
             val_test <- pval
          }
 
-         if (criteria  == "AIC" || criteria  == "BIC")
-         {
+         if (criteria  == "AIC" || criteria  == "BIC"){
             k_val <- ifelse(criteria  == "AIC",2,log(nrow(DF)))
             model2 <- stats::glm(formule_diff,data = DF,family = "binomial")
             sens <- ifelse(extractAIC(model,k = k_val)[1] > extractAIC(model2,k = k_val)[1],1,-1)

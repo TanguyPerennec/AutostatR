@@ -134,3 +134,13 @@ To https://github.com/TanguyPerennec/AutostatR.git
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ commit add .
 commit : commande introuvable
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit ad[K[K[K[K[K[K[K[K[K[K add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ comm[K[K[K[Kgit commit m "minor changes with syntax" "a"n"d" "c"o"n"f"i"r"m"a"t"i"o"n" "t"o" "F"a"l"s"e" "f"o"r" "f"a"c"t"o"r"s"
+error: le spécificateur de chemin 'm' ne correspond à aucun fichier connu de git
+error: le spécificateur de chemin 'minor changes with syntax and confirmation to False for factors' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit m "minor changes with syntax and confirmation to False for factors"[C[1@-
+[main af1eb4c] minor changes with syntax and confirmation to False for factors
+ 9 files changed, 36 insertions(+), 28 deletions(-)
+ create mode 100644 tableau1.xlsx
+ create mode 100644 tableau2.xlsx
+ create mode 100644 tableau3.xlsx
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit - [Kam "change p for LRT"

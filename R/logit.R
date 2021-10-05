@@ -17,13 +17,10 @@ logit <- function(DF,
 {
    DF <- as.data.frame(DF)
 
-   if (is.null(verbose))
-   {
-      if (auto)
-      {
+   if (is.null(verbose)){
+      if (auto){
          verbose <- FALSE
-      }else
-      {
+      }else {
          verbose <- TRUE
       }
    }
@@ -37,8 +34,7 @@ logit <- function(DF,
 
    # 2) Verify conditions and transformation
    ##################################################
-   if (!is.factor(DF[, y]))
-   {
+   if (!is.factor(DF[, y])) {
       DF[, y] <- tobinary(DF[, y])
    }else {
       if (!(levels(DF[,y]) == c(0,1) || levels(DF[,y]) == c(1,0)))
@@ -54,15 +50,12 @@ logit <- function(DF,
    error_glm <- TRUE
    firth_method <- FALSE
 
-   while (error_glm)
-   {
-      tryCatch(
-      {
+   while (error_glm) {
+      tryCatch({
          error_glm <- FALSE
          model <- safeBinaryRegression::glm(formule, data = DF, family = "binomial")
       },
-      error = function(er)
-      {
+      error = function(er){
          error_glm <- TRUE
          if (grepl("separation", er)) # there is a complete separation
          {

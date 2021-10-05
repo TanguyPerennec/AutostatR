@@ -189,7 +189,7 @@ reglog <- function(DF,
 
    getinfo_glm <- function(mod,k,var) {
       OR <- round(exp(as.numeric(mod$coefficients[k + 1])), round) # logit exponential
-      pval <- summary(mod)$coefficients[k + 1, 4]
+      pval <- anova(mod, test = "LRT")$Pr[k + 1]
       IC <- paste0(round(suppressMessages(exp(confint(mod)))[k + 1, ], round),collapse = ";")
       IC <- paste0("[",IC,"]")
       name_var <- var
@@ -212,8 +212,7 @@ reglog <- function(DF,
          rslt[i + 1, ] <- c(ligneR[1:4], "-", "-", "-")
          row.names(rslt)[i + 1] <- paste0(var_uni,ligneR[5])
       } else {
-         while (k + 1 < length(levels(DF[, var_uni])))
-         {
+         while (k + 1 < length(levels(DF[, var_uni]))){
             i <- i + 1
             k <- k + 1
             ligneR <- getinfo_glm(mod_uni,k,var_uni)
@@ -300,8 +299,8 @@ reglog <- function(DF,
    #              MATRICE DE RESULTATS              #
    ##################################################
    rslt -> rslt_stability
-   OR <- exp(mod_multi$coefficients) #exp de la fonction logit
-   pval <- summary(mod_multi)$coefficients[,4]
+   OR <- exp(mod_multi$coefficients)
+   pval <- anova(mod_multi, test = "LRT")$Pr
    IC <- round(suppressMessages(exp(confint(mod_multi))),round)
    i <- 0
 
