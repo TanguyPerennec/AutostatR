@@ -11,4 +11,9 @@ Imports:
     stats,
     flextable,
     pbapply,
-    MASS
+    MASS,
+    stringr,
+    xlsx,
+    survival,
+    graphics
+RoxygenNote: 7.1.1

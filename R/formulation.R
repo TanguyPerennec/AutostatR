@@ -5,8 +5,6 @@
 #'
 #' @return formulation returns a formula object
 #' @export
-#'
-#' @import dplyr
 formulation <- function(object,y=NULL){
 
 

@@ -3,14 +3,9 @@
 #' @param DF dataframe
 #' @param y character
 #' @param regression logical
-#'
-#' @return
+#' @return in
 #' @export
-#' @import ROCR
-#' @import dplyr
 #' @import stringr
-#'
-#' @examples
 propensity <- function(DF,
                        y,
                        regression)
@@ -72,12 +67,10 @@ propensity <- function(DF,
 
    summary(mod)$coefficients[,1] -> logit_coeff
    DF_propensity$predicted <- as.numeric(DF_propensity[,1])
-   for (patient in 1:nrow(DF_propensity))
-   {
+   for (patient in 1:nrow(DF_propensity)){
       names(logit_coeff) <- NULL
-      predicted <- logit_coeff[1]#ordonnée à l'origine
-      for (i in 1:(length(logit_coeff)-1))
-      {
+      predicted <- logit_coeff[1] #ordonnee a l'origine
+      for (i in 1:(length(logit_coeff)-1)) {
          predicted <- predicted + logit_coeff[i+1]*as.numeric(DF_propensity[patient,i+1])
       }
       DF_propensity$predicted[patient] <- predicted

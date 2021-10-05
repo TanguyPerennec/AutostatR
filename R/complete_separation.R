@@ -13,8 +13,6 @@
 #'
 #' @return check_dichotomous returns a boolean TRUE if y is a dichotomous variable of x
 #' @export
-#' @import tidyverse
-#' @import questionr
 #'
 #' @examples
 check_dichotomous <-
@@ -247,7 +245,7 @@ complete_separation <- function(var,
        2. Re-cast the model
        3. Use of an ad hoc adjustment (Clogg transformation)
        4. Exact logistic regression (not available)
-       5. Standard analysis with beta set to a ‘high’ value (ex : so that an iteration change the log-likelihood by less than 10−6) (not available)
+       5. Standard analysis with beta set to a high value (not available)
        6. Firth's Bias-Reduced Logistic Regression"
       )
       choice = 0

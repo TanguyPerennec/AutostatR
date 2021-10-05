@@ -18,14 +18,10 @@
 #'
 #' @return reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model
 #' @export
-#' @import dplyr
-#' @import logistf
 #' @import stringr
-#' @import safeBinaryRegression
 #' @import xlsx
 #' @import MASS
 #' @import flextable
-#' @import readr
 #'
 #' @references Bursac, Z., Gauss, C.H., Williams, D.K. et al. Purposeful selection of variables in logistic regression. Source Code Biol Med 3, 17 (2008). https://doi.org/10.1186/1751-0473-3-17
 #' @references Heinze G, Schemper M. A solution to the problem of separation in logistic regression. Stat Med. 2002;21(16):2409-2419. doi:10.1002/sim.1047

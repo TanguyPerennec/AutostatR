@@ -7,8 +7,6 @@
 #'
 #' @return
 #' @export
-#' @import safeBinaryRegression
-#' @import logistf
 #'
 #' @examples
 logit <- function(DF,

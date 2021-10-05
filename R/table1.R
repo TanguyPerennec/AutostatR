@@ -16,7 +16,6 @@
 #' @import stringr
 #' @import stats
 #' @import flextable
-#' @import RVAideMemoire
 #' @import MASS
 #' @import pbapply
 #' @import stats
@@ -423,8 +422,8 @@ table1 <- function(DF,
                         nrow  <- 1 + nrow
                         n <- DF[a, strate_i] #num de la paire
                         DF[DF[, strate_i] == n &
-                              !is.na(DF[, strate_i]), c("y_b", varname)] -> tab_1 # résultat de la paire
-                        c(tab_1[tab_1[, "y_b"] == levels(DF$y_b)[1], varname], tab_1[tab_1[, "y_b"] == levels(DF$y_b)[2], varname]) -> DF_stratified[nrow, ] #écriture résultat
+                              !is.na(DF[, strate_i]), c("y_b", varname)] -> tab_1 # resultat de la paire
+                        c(tab_1[tab_1[, "y_b"] == levels(DF$y_b)[1], varname], tab_1[tab_1[, "y_b"] == levels(DF$y_b)[2], varname]) -> DF_stratified[nrow, ] 
                      }
                   }
 
@@ -572,9 +571,8 @@ table1 <- function(DF,
                               nrow  <- 1 + nrow
                               n <- DF[a, strate_i] #num de la paire
                               DF[DF[, strate_i] == n & !is.na(DF[, strate_i]),
-                                 c("y_b", varname)] -> tab_1 # résultat de la paire
-                              c(tab_1[tab_1[, "y_b"] == levels(DF$y_b)[1], varname], tab_1[tab_1[, "y_b"] == levels(DF$y_b)[2], varname]) -> DF_stratified[nrow, ] #écriture résultats
-                           }
+                                 c("y_b", varname)] -> tab_1 
+                              c(tab_1[tab_1[, "y_b"] == levels(DF$y_b)[1], varname], tab_1[tab_1[, "y_b"] == levels(DF$y_b)[2], varname]) -> DF_stratified[nrow, ]                            }
                         }
                         p <- mcnemar.test(DF_stratified[, 1], DF_stratified[, 2])$p.value
                         clig <- roundp(p[2], round_p)
