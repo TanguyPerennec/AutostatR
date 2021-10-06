@@ -409,3 +409,11 @@ error: Vos modifications locales aux fichiers suivants seraient écrasées par l
 Veuillez valider ou remiser vos modifications avant de basculer de branche.
 Abandon
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout main[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgit branch -avcheckout masteroriginmerge reglog-toapply[12Pcheckout[4Ppushcheckout masteroriginommit -m "final branch"add .[Kcheckout origin[10Padd .commit -m "final branch"[9Pheckout originommit -m "final branch"[1@a
+[reglog-toapply 7bc6804] final branch
+ 1 file changed, 60 insertions(+), 1 deletion(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "final branch"[Kgit branch -avcheckout master[5Pbranch -av[Kgit branch -avcheckout masteroriginmerge reglog-toapply[5Pcheckout originmaster[K[K[K[Kin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ 
