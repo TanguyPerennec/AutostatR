@@ -280,3 +280,73 @@ Vous vouliez sûrement dire 'git add .' ?
  create mode 100644 tableau3.xlsx
  create mode 100644 tableau_reg2.xlsx
 """]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ """[K[K[Kgit commit -am "explicatives to explicatives_matrix"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[Kc"o"[1P"[1P"[C"c"o"r"r"e"c"t" "e"x"c"e"l" "f"i"l"e"s"
+[reglog-toapply 7945817] correct excel files
+ 7 files changed, 10 insertions(+), 2 deletions(-)
+ delete mode 100644 tableau.xlsx
+ delete mode 100644 tableau1.xlsx
+ delete mode 100644 tableau2.xlsx
+ delete mode 100644 tableau3.xlsx
+ delete mode 100644 tableau_reg2.xlsx
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+fatal: La branche courante reglog-toapply n'a pas de branche amont.
+Pour pousser la branche courante et définir la distante comme amont, utilisez
+
+    git push --set-upstream origin reglog-toapply
+
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ ^C
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push --set-upstream origin reglog-toapply
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPerennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 45, fait.
+Décompte des objets:   2% (1/45)Décompte des objets:   4% (2/45)Décompte des objets:   6% (3/45)Décompte des objets:   8% (4/45)Décompte des objets:  11% (5/45)Décompte des objets:  13% (6/45)Décompte des objets:  15% (7/45)Décompte des objets:  17% (8/45)Décompte des objets:  20% (9/45)Décompte des objets:  22% (10/45)Décompte des objets:  24% (11/45)Décompte des objets:  26% (12/45)Décompte des objets:  28% (13/45)Décompte des objets:  31% (14/45)Décompte des objets:  33% (15/45)Décompte des objets:  35% (16/45)Décompte des objets:  37% (17/45)Décompte des objets:  40% (18/45)Décompte des objets:  42% (19/45)Décompte des objets:  44% (20/45)Décompte des objets:  46% (21/45)Décompte des objets:  48% (22/45)Décompte des objets:  51% (23/45)Décompte des objets:  53% (24/45)Décompte des objets:  55% (25/45)Décompte des objets:  57% (26/45)Décompte des objets:  60% (27/45)Décompte des objets:  62% (28/45)Décompte des objets:  64% (29/45)Décompte des objets:  66% (30/45)Décompte des objets:  68% (31/45)Décompte des objets:  71% (32/45)Décompte des objets:  73% (33/45)Décompte des objets:  75% (34/45)Décompte des objets:  77% (35/45)Décompte des objets:  80% (36/45)Décompte des objets:  82% (37/45)Décompte des objets:  84% (38/45)Décompte des objets:  86% (39/45)Décompte des objets:  88% (40/45)Décompte des objets:  91% (41/45)Décompte des objets:  93% (42/45)Décompte des objets:  95% (43/45)Décompte des objets:  97% (44/45)Décompte des objets: 100% (45/45)Décompte des objets: 100% (45/45), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   3% (1/29)Compression des objets:   6% (2/29)Compression des objets:  10% (3/29)Compression des objets:  13% (4/29)Compression des objets:  17% (5/29)Compression des objets:  20% (6/29)Compression des objets:  24% (7/29)Compression des objets:  27% (8/29)Compression des objets:  31% (9/29)Compression des objets:  34% (10/29)Compression des objets:  37% (11/29)Compression des objets:  41% (12/29)Compression des objets:  44% (13/29)Compression des objets:  48% (14/29)Compression des objets:  51% (15/29)Compression des objets:  55% (16/29)Compression des objets:  58% (17/29)Compression des objets:  62% (18/29)Compression des objets:  65% (19/29)Compression des objets:  68% (20/29)Compression des objets:  72% (21/29)Compression des objets:  75% (22/29)Compression des objets:  79% (23/29)Compression des objets:  82% (24/29)Compression des objets:  86% (25/29)Compression des objets:  89% (26/29)Compression des objets:  93% (27/29)Compression des objets:  96% (28/29)Compression des objets: 100% (29/29)Compression des objets: 100% (29/29), fait.
+Écriture des objets:   3% (1/29)Écriture des objets:   6% (2/29)Écriture des objets:  13% (4/29)Écriture des objets:  17% (5/29)Écriture des objets:  20% (6/29)Écriture des objets:  24% (7/29)Écriture des objets:  27% (8/29)Écriture des objets:  31% (9/29)Écriture des objets:  34% (10/29)Écriture des objets:  37% (11/29)Écriture des objets:  41% (12/29)Écriture des objets:  44% (13/29)Écriture des objets:  48% (14/29)Écriture des objets:  51% (15/29)Écriture des objets:  55% (16/29)Écriture des objets:  58% (17/29)Écriture des objets:  62% (18/29)Écriture des objets:  65% (19/29)Écriture des objets:  68% (20/29)Écriture des objets:  72% (21/29)Écriture des objets:  75% (22/29)Écriture des objets:  79% (23/29)Écriture des objets:  82% (24/29)Écriture des objets:  86% (25/29)Écriture des objets:  93% (27/29)Écriture des objets:  96% (28/29)Écriture des objets: 100% (29/29)Écriture des objets: 100% (29/29), 16.93 Kio | 2.42 Mio/s, fait.
+Total 29 (delta 17), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/17)[Kremote: Resolving deltas:   5% (1/17)[Kremote: Resolving deltas:  11% (2/17)[Kremote: Resolving deltas:  17% (3/17)[Kremote: Resolving deltas:  23% (4/17)[Kremote: Resolving deltas:  29% (5/17)[Kremote: Resolving deltas:  35% (6/17)[Kremote: Resolving deltas:  41% (7/17)[Kremote: Resolving deltas:  47% (8/17)[Kremote: Resolving deltas:  52% (9/17)[Kremote: Resolving deltas:  58% (10/17)[Kremote: Resolving deltas:  64% (11/17)[Kremote: Resolving deltas:  70% (12/17)[Kremote: Resolving deltas:  76% (13/17)[Kremote: Resolving deltas:  82% (14/17)[Kremote: Resolving deltas:  88% (15/17)[Kremote: Resolving deltas:  94% (16/17)[Kremote: Resolving deltas: 100% (17/17)[Kremote: Resolving deltas: 100% (17/17), completed with 12 local objects.[K
+remote: 
+remote: Create a pull request for 'reglog-toapply' on GitHub by visiting:[K
+remote:      https://github.com/TanguyPerennec/AutostatR/pull/new/reglog-toapply[K
+remote: 
+To https://github.com/TanguyPerennec/AutostatR.git
+ * [new branch]      reglog-toapply -> reglog-toapply
+La branche 'reglog-toapply' est paramétrée pour suivre la branche distante 'reglog-toapply' depuis 'origin'.
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche reglog-toapply
+Votre branche est à jour avec 'origin/reglog-toapply'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477.env[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch
+[?1h=  main[m[m
+* [32mreglog-toapply[m[m
+[K[?1l>]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout remote
+error: le spécificateur de chemin 'remote' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout remote[K[K[K[K[K[K[K
+M	.Rproj.user/C61DC93E/console06/E513A477
+M	.Rproj.user/C61DC93E/console06/E513A477.env
+Votre branche est à jour avec 'origin/reglog-toapply'.
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche reglog-toapply
+Votre branche est à jour avec 'origin/reglog-toapply'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477.env[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git statuscheckout origin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
