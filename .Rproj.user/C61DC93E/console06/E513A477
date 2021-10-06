@@ -272,3 +272,11 @@ Rien de spécifié, rien n'a été ajouté.
 Vous vouliez sûrement dire 'git add .' ?
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "explicatives to explicatives_matrix"
+[reglog-toapply 988c5e8] explicatives to explicatives_matrix
+ 15 files changed, 104 insertions(+), 69 deletions(-)
+ create mode 100644 tableau.xlsx
+ create mode 100644 tableau1.xlsx
+ create mode 100644 tableau2.xlsx
+ create mode 100644 tableau3.xlsx
+ create mode 100644 tableau_reg2.xlsx
+"""]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ """[K[K[Kgit commit -am "explicatives to explicatives_matrix"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[Kc"o"[1P"[1P"[C"c"o"r"r"e"c"t" "e"x"c"e"l" "f"i"l"e"s"
