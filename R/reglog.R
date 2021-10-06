@@ -15,11 +15,9 @@
 #' @param exit specify where do you want to display the results : console (the default), excel (in a results.xlsx file), html (using kable)
 #' @param dataprep 
 #' @param rowstimevariable 
-#' @param confirmation 
 #' @param stability 
-#' @param equation 
+#' @param equation logical : to show the equation of the regression function
 #' @param title 
-#' @param ... 
 #'
 #' @return reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model
 #' @export
@@ -40,13 +38,11 @@ reglog <- function(DF,
             alpha_max=0.2,
             round = 3,
             rowstimevariable = 10,
-            confirmation=FALSE,
             keep=FALSE,
             exit = "html",
             stability=FALSE,
             equation = FALSE,
-            title = TRUE,
-            ...)
+            title = TRUE)
    {
 
    # Y
@@ -56,22 +52,24 @@ reglog <- function(DF,
       stop("y must be a character variable, part of DF")
 
    ## Explicatives
-   if (!is.vector(explicatives))
-      stop("explicatives should be a vector of characters")
-
-   # Removes explicatives not in DF
+   if (!is.matrix(explicatives) & !is.data.frame(explicatives)){
+     if (is.vector(explicatives)){
+       explicatives_matrix = get_explicatives_matrix(explicatives,DF)
+     }else{
+       stop("explicatives should be a vector of characters or a matrix")
+     }
+   } else {
+     explicatives_matrix = explicatives
+     explicatives = as.vector(explicatives_matrix$explicatives)
+   }
+      
    explicatives_out_DF <- explicatives[!(explicatives %in% colnames(DF))]
    if (length(explicatives_out_DF) > 0){
       msg_error <- explicatives_out_DF[1]
-      if (length(explicatives_out_DF) > 1){
-         for (expl_out_DF in explicatives_out_DF[-1]){
-            msg_error <- paste0(msg_error, ", ", expl_out_DF)
+      for (expl_out_DF in explicatives_out_DF[-1]){
+          msg_error <- paste0(msg_error, ", ", expl_out_DF)
          }
-         msg_error <- paste0(msg_error, " are not part of DF columns")
-      } else{
-         msg_error <- paste0(msg_error, " is not part of DF columns")
-      }
-      msg_error <- paste(msg_error," ; maybe you should also check on wether the colnames are uniques")
+         msg_error <- paste0(msg_error,ifelse(length(explicatives_out_DF) > 1," are "," is "), "not part of DF columns")
       stop(msg_error)
    }
 
@@ -80,8 +78,6 @@ reglog <- function(DF,
       message('y is part of "explicatives" and is removed from it')
       explicatives <- explicatives[explicatives != y]
    }
-   explicative2 <- explicatives
-
 
    ## Dataframe
    if (is.data.frame(DF) || is.matrix(DF)){
@@ -90,7 +86,7 @@ reglog <- function(DF,
       if (!setequal(make.names(colnames(DF)),colnames(DF))){
          message("column names are not valid, 'make.names()' is used to have valid colnames")
          make.names(colnames(DF)) -> colnames(DF)
-         make.names(explicatives) -> explicatives
+         make.names(explicatives) -> explicatives -> explicatives_matrix$explicatives -> rownames(explicatives_matrix)
          make.names(y) -> y
       }
    } else {
@@ -100,14 +96,8 @@ reglog <- function(DF,
 
    if (!is.logical(verbose))
       stop("'verbose' must be logical")
-
    if (!is.numeric(round) || round <= 0)
       stop("round must be numeric and positive")
-
-
-   if (!is.logical(confirmation))
-      stop("'confirmation' must be logical")
-
    if (!is.logical(keep)) {
       if (!is.character(keep) & !is.vector(keep))
          stop("keep should be a vector of character or characters")
@@ -121,7 +111,7 @@ reglog <- function(DF,
    ##################################################
    #               1) DATA CLEANING                 #
    ##################################################
-   if (dataprep == TRUE) {
+   if (dataprep) {
 
       if (verbose) cat("
 \n
@@ -133,10 +123,7 @@ reglog <- function(DF,
      +-----------------------------+
                        \n")
 
-      DF <- data_prep_complete(DF,y,...)
-
-      ##################################################
-
+      DF <- data_prep_complete(DF,y,explicatives_matrix)
    }
 
 
@@ -144,7 +131,7 @@ reglog <- function(DF,
    #####
    vect_explicative <- vector()
    as.data.frame(DF) -> DF
-   explicatives <- colnames(DF)[colnames(DF) != y]
+   #explicatives <- colnames(DF)[colnames(DF) != y]
    n = 1
    for (var in explicatives) {#making a vector with the name of the variable displayed as many times as (levels - 1)
       if (is.numeric(DF[, var])) {
@@ -213,7 +200,6 @@ reglog <- function(DF,
          }
       } #else of is.numeric
    } # end of loop
-
    ##################################################
 
 
@@ -257,7 +243,6 @@ reglog <- function(DF,
       stability_rslts <- stability_proportion(DF,y,keep_stability = keep)
 
       meaningful_variables <- stability_select_meaningful(stability_rslts)
-
 
       variables_means_rslt <- variables_means(DF[,c(y,meaningful_variables)])
 

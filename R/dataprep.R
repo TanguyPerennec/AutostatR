@@ -373,7 +373,6 @@ NA_rm_for_glm <- function(DF,
 #' Checking factors
 #'
 #' @param vars
-#' @param confirmation
 #' @param DF dataframe : the dataframe to clean
 #' @param verbose (optional) logical : TRUE will display some informations in the console
 #' @return
@@ -383,7 +382,6 @@ NA_rm_for_glm <- function(DF,
 checkforfactor <-
    function(DF,
             vars = colnames(DF),
-            confirmation = F,
             verbose = TRUE)
 {
    DF <- as.data.frame(DF)
@@ -400,13 +398,7 @@ checkforfactor <-
             rep <- "N"
             if (length(levels(DF[, var])) < 7 & length(levels(DF[, var])) > 1) {
                message("\n", var, " is a numeric variable with only",length(levels(DF[, var]))," different values and could be considered as a factor")
-               if (confirmation)
-               {
-                  rep <- readline(paste0("Change",var,"into factor ? O/N  "))
-               }else
-               {
-                  rep <- "O"
-               }
+              rep <- "O"
                if (rep != 'O') as.numeric(DF[,var]) -> DF[,var]
             }else
             {
@@ -585,10 +577,10 @@ format_data <- function(DF,
 #' @examples
 data_prep_complete <- function(DF,
                                  y=colnames(DF)[1],
+                                explicatives_matrix,
                                  verbose = TRUE,
                                  keep = FALSE)
 {
-   keep -> variable_to_keep
    DF <- as.data.frame(DF)
    DF1 <- DF
 
@@ -601,11 +593,17 @@ data_prep_complete <- function(DF,
    DF <- as.data.frame(DF)
 
    # get rid of NAs
-   DF <- NA_rm_for_glm(DF,y,keep = variable_to_keep)
+   DF <- NA_rm_for_glm(DF,y,keep)
 
    # Clean constant variables
-   DF <- checkforfactor(DF)
-
+   #DF <- checkforfactor(DF)
+   for (exp in explicatives_matrix$explicatives){
+     exp <- explicatives_matrix[exp,]
+     if (as.logical(exp[5])){
+       relevel(as.factor(as.character(DF[,rownames(exp)])),as.character(exp[6])) -> DF[,rownames(exp)]
+     }
+   }
+   
    # Finally
    explicatives <- colnames(DF)[colnames(DF) != y]
    DF <- as.data.frame(DF)

@@ -35,9 +35,6 @@ table1 <- function(DF,
                    complete=F)
 {
 
-   version_pkg = '1.0.0_24/09/2021'
-
-
 
    ##################################################
    #    Arguments verification / transformation     #

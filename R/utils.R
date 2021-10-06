@@ -73,6 +73,7 @@ get_y_vector <- function(y,
 #' @param one_lines vector of boolean : whether to display one or two lines for 2 levels factors
 #' @param DF dataframe
 #' @param make.names if names should be changed
+#' @param limit_factor numeric : number of levels to coerce numerical variable to factors
 #'
 #' @return
 #' @export
@@ -83,7 +84,8 @@ get_explicatives_matrix <- function(explicatives,
                                     names = explicatives,
                                     complete_names = TRUE,
                                     one_lines = TRUE,
-                                    make.names = TRUE) {
+                                    make.names = TRUE,
+                                    limit_factor = 5) {
 
    if (make.names){
       names <- colnames_prep(names, type = "presentation")
@@ -120,7 +122,7 @@ get_explicatives_matrix <- function(explicatives,
       explicatives_matrix$factor <- sapply(DF[, explicatives],
                                            function(x) {
                                               if (is.numeric(x)) {
-                                                 length(levels(as.factor(x))) < 5
+                                                 length(levels(as.factor(x))) < limit_factor
                                               } else{
                                                  TRUE
                                               }
@@ -128,10 +130,12 @@ get_explicatives_matrix <- function(explicatives,
 
       explicatives_matrix$levels <- explicatives_matrix$labels <-
          sapply(explicatives, function(x)
-            if (explicatives_matrix[x, "factor"])
-               levels(as.factor(DF[,x]))[1]
+            if (as.logical(explicatives_matrix[x, "factor"])){
+              levels(as.factor(DF[,x])) -> levels
+              return(levels[1])
+            }
             else
-               NA)
+               return(NA))
 
 
       if (length(complete_names) == 1) {
