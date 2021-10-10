@@ -451,7 +451,7 @@ table1 <- function(DF,
                              paste0(substr(x, 1, 40), "...")
                           } else{x}
                        })
-        print(varname)
+
          #### Transformation into factor and mutation if needed
          relevel(as.factor(as.character(var)),as.character(X[6])) -> var
          var[var == "NA"] <- NA
@@ -775,6 +775,5 @@ table1 <- function(DF,
          align(j = 2:nb_colums, align = 'center', part = "header") -> rslt
    }
 
-   version = paste0('version : ', version_pkg)
    return(list("version" = version,"methods" = text_footer,"table" = rslt))
 }
