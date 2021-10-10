@@ -86,6 +86,7 @@ reglog <- function(DF,
       if (!setequal(make.names(colnames(DF)),colnames(DF))){
          message("column names are not valid, 'make.names()' is used to have valid colnames")
          make.names(colnames(DF)) -> colnames(DF)
+         stringr::str_to_lower(explicatives_matrix$levels) -> explicatives_matrix$levels
          make.names(explicatives) -> explicatives -> explicatives_matrix$explicatives -> rownames(explicatives_matrix)
          make.names(y) -> y
       }

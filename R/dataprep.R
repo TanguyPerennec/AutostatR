@@ -438,10 +438,8 @@ format_data <- function(DF,
    as.data.frame(DF) -> DF
    colnames(DF) -> colnamesDF
 
-      for (i in 1:length(DF))
-      {
-         if ("plain" %in% type & is.character(DF[,i]))
-         {
+      for (i in 1:length(DF)) {
+         if ("plain" %in% type & is.character(DF[,i])) {
             DF[,i] <- stringr::str_to_lower(DF[,i])
             DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00e9\\u00e8\\u00ea\\u00eb]","e")
             DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00e0\\u00e2]","a")
@@ -483,11 +481,9 @@ format_data <- function(DF,
             }
          }
 
-      if ("no-fem" %in% type & is.character(DF[, i]))
-         {
+      if ("no-fem" %in% type & is.character(DF[, i])) {
             string_levels <- levels(as.factor(DF[, i]))
-            for (level in string_levels)
-            {
+            for (level in string_levels) {
                words1 <- stringr::str_split(level," ")[[1]]
                for (level2 in string_levels[string_levels != level])
                {
