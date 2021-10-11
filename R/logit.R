@@ -75,7 +75,7 @@ logit <- function(DF,
 
 glm(formule, data = DF, family = "binomial") -> model
 
-   return(model)
+  return(model)
 }
 
 

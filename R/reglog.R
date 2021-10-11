@@ -224,6 +224,7 @@ reglog <- function(DF,
    explicatives_multi <- multivariate_selection(DF[,c(y,explicatives)],y,keep = keep2)$vars_multi
    # Definitive model
    logit(DF[,c(y,explicatives_multi)]) -> mod_multi
+   print(mod_multi)
    ##################################################
 
 
@@ -235,7 +236,8 @@ reglog <- function(DF,
      |                             |
      |    4) STABILITY ANALYSIS    |
      |                             |
-     +-----------------------------+\n")
+     +-----------------------------+\n"
+                    )
 
 
 
