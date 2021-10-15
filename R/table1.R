@@ -35,9 +35,6 @@ table1 <- function(DF,
                    complete=F)
 {
 
-   version_pkg = '1.0.0_24/09/2021'
-
-
 
    ##################################################
    #    Arguments verification / transformation     #
@@ -779,7 +776,8 @@ table1 <- function(DF,
          align(j = 2:nb_colums, align = 'center') %>%
          align(j = 2:nb_colums, align = 'center', part = "header") -> rslt
    }
+   
+   version <- paste0("Statistical analysis have been performed with R (",version$version.string,"), with the package AutostatR version 1.0.1")
 
-   version = paste0('version : ', version_pkg)
    return(list("version" = version,"methods" = text_footer,"table" = rslt))
 }

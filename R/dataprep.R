@@ -1,4 +1,3 @@
-
 #' Colnames preparation
 #'
 #' @param object : vector of character or dataframe
@@ -8,8 +7,7 @@
 #' @export
 #'
 #' @examples
-colnames_prep <- function(object,type="make.names")
-{
+colnames_prep <- function(object,type="make.names"){
 
    # Verification
    if (is.data.frame(object)) {
@@ -375,7 +373,6 @@ NA_rm_for_glm <- function(DF,
 #' Checking factors
 #'
 #' @param vars
-#' @param confirmation
 #' @param DF dataframe : the dataframe to clean
 #' @param verbose (optional) logical : TRUE will display some informations in the console
 #' @return
@@ -385,16 +382,12 @@ NA_rm_for_glm <- function(DF,
 checkforfactor <-
    function(DF,
             vars = colnames(DF),
-            confirmation = TRUE,
             verbose = TRUE)
 {
    DF <- as.data.frame(DF)
-   for (var_i in length(vars):1)
-   {
+   for (var_i in length(vars):1) {
       var <- vars[var_i]
-
-      if (is.numeric(DF[,var]))
-      {
+      if (is.numeric(DF[,var])) {
          as.factor(DF[,var]) -> DF[,var]
          if (length(levels(DF[, var])) < 2)
          {#removes factor with only one level
@@ -405,13 +398,7 @@ checkforfactor <-
             rep <- "N"
             if (length(levels(DF[, var])) < 7 & length(levels(DF[, var])) > 1) {
                message("\n", var, " is a numeric variable with only",length(levels(DF[, var]))," different values and could be considered as a factor")
-               if (confirmation)
-               {
-                  rep <- readline(paste0("Change",var,"into factor ? O/N  "))
-               }else
-               {
-                  rep <- "O"
-               }
+              rep <- "O"
                if (rep != 'O') as.numeric(DF[,var]) -> DF[,var]
             }else
             {
@@ -451,10 +438,8 @@ format_data <- function(DF,
    as.data.frame(DF) -> DF
    colnames(DF) -> colnamesDF
 
-      for (i in 1:length(DF))
-      {
-         if ("plain" %in% type & is.character(DF[,i]))
-         {
+      for (i in 1:length(DF)) {
+         if ("plain" %in% type & is.character(DF[,i])) {
             DF[,i] <- stringr::str_to_lower(DF[,i])
             DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00e9\\u00e8\\u00ea\\u00eb]","e")
             DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00e0\\u00e2]","a")
@@ -496,11 +481,9 @@ format_data <- function(DF,
             }
          }
 
-      if ("no-fem" %in% type & is.character(DF[, i]))
-         {
+      if ("no-fem" %in% type & is.character(DF[, i])) {
             string_levels <- levels(as.factor(DF[, i]))
-            for (level in string_levels)
-            {
+            for (level in string_levels) {
                words1 <- stringr::str_split(level," ")[[1]]
                for (level2 in string_levels[string_levels != level])
                {
@@ -590,10 +573,10 @@ format_data <- function(DF,
 #' @examples
 data_prep_complete <- function(DF,
                                  y=colnames(DF)[1],
+                                explicatives_matrix,
                                  verbose = TRUE,
                                  keep = FALSE)
 {
-   keep -> variable_to_keep
    DF <- as.data.frame(DF)
    DF1 <- DF
 
@@ -606,17 +589,22 @@ data_prep_complete <- function(DF,
    DF <- as.data.frame(DF)
 
    # get rid of NAs
-   DF <- NA_rm_for_glm(DF,y,keep = variable_to_keep)
+   DF <- NA_rm_for_glm(DF,y,keep)
 
    # Clean constant variables
-   DF <- checkforfactor(DF)
-
+   #DF <- checkforfactor(DF)
+   for (exp in explicatives_matrix$explicatives){
+     exp <- explicatives_matrix[exp,]
+     if (as.logical(exp[5])){
+       relevel(as.factor(as.character(DF[,rownames(exp)])),as.character(exp[6])) -> DF[,rownames(exp)]
+     }
+   }
+   
    # Finally
    explicatives <- colnames(DF)[colnames(DF) != y]
    DF <- as.data.frame(DF)
 
-   if (verbose)
-   {
+   if (verbose) {
       cat("\n",(nrow(DF1) - nrow(DF))," rows deleted (",round(100*(nrow(DF1) - nrow(DF))/(nrow(DF1)),0),"%)","...........",nrow(DF),"rows remaining")
       cat("\n\nData cleaning is over.\n\nExplicatives variables remaining are :\n",explicatives,
           "\n\nIt remains ",length(explicatives),"variables and ",nrow(DF),"observations")

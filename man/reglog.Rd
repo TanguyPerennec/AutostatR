@@ -14,13 +14,11 @@ reglog(
   alpha_max = 0.2,
   round = 3,
   rowstimevariable = 10,
-  confirmation = FALSE,
   keep = FALSE,
   exit = "html",
   stability = FALSE,
   equation = FALSE,
-  title = TRUE,
-  ...
+  title = TRUE
 )
 }
 \arguments{
@@ -43,19 +41,15 @@ Takes all columns but y from the dataframe if kept empty.}
 
 \item{rowstimevariable}{}
 
-\item{confirmation}{}
-
 \item{keep}{all the variables that should be kept in the multivariate results}
 
 \item{exit}{specify where do you want to display the results : console (the default), excel (in a results.xlsx file), html (using kable)}
 
 \item{stability}{}
 
-\item{equation}{}
+\item{equation}{logical : to show the equation of the regression function}
 
 \item{title}{}
-
-\item{...}{}
 }
 \value{
 reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model

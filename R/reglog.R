@@ -15,11 +15,9 @@
 #' @param exit specify where do you want to display the results : console (the default), excel (in a results.xlsx file), html (using kable)
 #' @param dataprep 
 #' @param rowstimevariable 
-#' @param confirmation 
 #' @param stability 
-#' @param equation 
+#' @param equation logical : to show the equation of the regression function
 #' @param title 
-#' @param ... 
 #'
 #' @return reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model
 #' @export
@@ -40,23 +38,12 @@ reglog <- function(DF,
             alpha_max=0.2,
             round = 3,
             rowstimevariable = 10,
-            confirmation=FALSE,
             keep=FALSE,
             exit = "html",
             stability=FALSE,
             equation = FALSE,
-            title = TRUE,
-            ...)
+            title = TRUE)
    {
-
-   #To ignore warnings during usage
-   options(warn = -1)
-   options("getSymbols.warning4.0" = FALSE)
-
-
-   ##################################################
-   #    Arguments verification / transformation     #
-   ##################################################
 
    # Y
    if (missing(y))
@@ -65,73 +52,57 @@ reglog <- function(DF,
       stop("y must be a character variable, part of DF")
 
    ## Explicatives
-   if (!is.vector(explicatives))
-      stop("explicatives should be a vector of characters")
-
-   # Removes explicatives not in DF
+   if (!is.matrix(explicatives) & !is.data.frame(explicatives)){
+     if (is.vector(explicatives)){
+       explicatives_matrix = get_explicatives_matrix(explicatives,DF)
+     }else{
+       stop("explicatives should be a vector of characters or a matrix")
+     }
+   } else {
+     explicatives_matrix = explicatives
+     explicatives = as.vector(explicatives_matrix$explicatives)
+   }
+      
    explicatives_out_DF <- explicatives[!(explicatives %in% colnames(DF))]
-   if (length(explicatives_out_DF) > 0)
-   {
+   if (length(explicatives_out_DF) > 0){
       msg_error <- explicatives_out_DF[1]
-      if (length(explicatives_out_DF) > 1)
-      {
-         for (expl_out_DF in explicatives_out_DF[-1])
-         {
-            msg_error <- paste0(msg_error, ", ", expl_out_DF)
+      for (expl_out_DF in explicatives_out_DF[-1]){
+          msg_error <- paste0(msg_error, ", ", expl_out_DF)
          }
-         msg_error <- paste0(msg_error, " are not part of DF columns")
-      } else{
-         msg_error <- paste0(msg_error, " is not part of DF columns")
-      }
-      msg_error <- paste(msg_error," ; maybe you should also check on wether the colnames are uniques")
+         msg_error <- paste0(msg_error,ifelse(length(explicatives_out_DF) > 1," are "," is "), "not part of DF columns")
       stop(msg_error)
    }
 
    # Removes y from explicatives
-   if (y %in% explicatives)
-   {
+   if (y %in% explicatives) {
       message('y is part of "explicatives" and is removed from it')
       explicatives <- explicatives[explicatives != y]
    }
-   explicative2 <- explicatives
-
 
    ## Dataframe
    if (is.data.frame(DF) || is.matrix(DF)){
       DF <- as.data.frame(DF,row.names = NULL)
       DF <- DF[,c(y,explicatives)]
-      if (!setequal(make.names(colnames(DF)),colnames(DF)))
-      {
+      if (!setequal(make.names(colnames(DF)),colnames(DF))){
          message("column names are not valid, 'make.names()' is used to have valid colnames")
          make.names(colnames(DF)) -> colnames(DF)
-         make.names(explicatives) -> explicatives
+         stringr::str_to_lower(explicatives_matrix$levels) -> explicatives_matrix$levels
+         make.names(explicatives) -> explicatives -> explicatives_matrix$explicatives -> rownames(explicatives_matrix)
          make.names(y) -> y
       }
-   } else
-   {
+   } else {
       stop("No dataframe has been provided. Make sure 'DF' is a dataframe, a tibble or a matrix")
    }
 
 
    if (!is.logical(verbose))
       stop("'verbose' must be logical")
-   verbose -> verbose2
-
    if (!is.numeric(round) || round <= 0)
       stop("round must be numeric and positive")
-   round -> round2
-
-
-   if (!is.logical(confirmation))
-      stop("'confirmation' must be logical")
-   confirmation -> confirmation2
-
-
-   if (!is.logical(keep))
-   {
+   if (!is.logical(keep)) {
       if (!is.character(keep) & !is.vector(keep))
          stop("keep should be a vector of character or characters")
-      if (FALSE %in% (keep %in% explicatives))
+      if (!any(keep %in% explicatives))
          stop("some of keep elements are not in 'explicatives'")
    }
    keep -> keep2
@@ -141,7 +112,7 @@ reglog <- function(DF,
    ##################################################
    #               1) DATA CLEANING                 #
    ##################################################
-   if (dataprep == TRUE) {
+   if (dataprep) {
 
       if (verbose) cat("
 \n
@@ -153,10 +124,7 @@ reglog <- function(DF,
      +-----------------------------+
                        \n")
 
-      DF <- data_prep_complete(DF,y,verbose = TRUE,keep = keep2,...)
-
-      ##################################################
-
+      DF <- data_prep_complete(DF,y,explicatives_matrix)
    }
 
 
@@ -164,7 +132,7 @@ reglog <- function(DF,
    #####
    vect_explicative <- vector()
    as.data.frame(DF) -> DF
-   explicatives <- colnames(DF)[colnames(DF) != y]
+   #explicatives <- colnames(DF)[colnames(DF) != y]
    n = 1
    for (var in explicatives) {#making a vector with the name of the variable displayed as many times as (levels - 1)
       if (is.numeric(DF[, var])) {
@@ -199,8 +167,8 @@ reglog <- function(DF,
    rownames(rslt) <- c("",vect_explicative)
 
    getinfo_glm <- function(mod,k,var) {
-      OR <- round(exp(as.numeric(mod$coefficients[k + 1])), round) # logit exponential
-      pval <- summary(mod)$coefficients[k + 1, 4]
+      OR <- round(exp(as.numeric(mod$coefficients[k + 1])),round)
+      pval <- roundp(anova(mod, test = "LRT")$Pr[k + 1],round)
       IC <- paste0(round(suppressMessages(exp(confint(mod)))[k + 1, ], round),collapse = ";")
       IC <- paste0("[",IC,"]")
       name_var <- var
@@ -223,8 +191,7 @@ reglog <- function(DF,
          rslt[i + 1, ] <- c(ligneR[1:4], "-", "-", "-")
          row.names(rslt)[i + 1] <- paste0(var_uni,ligneR[5])
       } else {
-         while (k + 1 < length(levels(DF[, var_uni])))
-         {
+         while (k + 1 < length(levels(DF[, var_uni]))){
             i <- i + 1
             k <- k + 1
             ligneR <- getinfo_glm(mod_uni,k,var_uni)
@@ -234,7 +201,6 @@ reglog <- function(DF,
          }
       } #else of is.numeric
    } # end of loop
-
    ##################################################
 
 
@@ -255,10 +221,10 @@ reglog <- function(DF,
 
 
    # Variable selection
-   explicatives_multi <- multivariate_selection(DF[,c(y,explicatives)],y,keep = keep2)
-   explicatives_multi <- explicatives_multi$vars_multi
+   explicatives_multi <- multivariate_selection(DF[,c(y,explicatives)],y,keep = keep2)$vars_multi
    # Definitive model
    logit(DF[,c(y,explicatives_multi)]) -> mod_multi
+   print(mod_multi)
    ##################################################
 
 
@@ -270,7 +236,8 @@ reglog <- function(DF,
      |                             |
      |    4) STABILITY ANALYSIS    |
      |                             |
-     +-----------------------------+\n")
+     +-----------------------------+\n"
+                    )
 
 
 
@@ -279,7 +246,6 @@ reglog <- function(DF,
       stability_rslts <- stability_proportion(DF,y,keep_stability = keep)
 
       meaningful_variables <- stability_select_meaningful(stability_rslts)
-
 
       variables_means_rslt <- variables_means(DF[,c(y,meaningful_variables)])
 
@@ -311,24 +277,22 @@ reglog <- function(DF,
    #              MATRICE DE RESULTATS              #
    ##################################################
    rslt -> rslt_stability
-   OR <- exp(mod_multi$coefficients) #exp de la fonction logit
-   pval <- summary(mod_multi)$coefficients[,4]
+   OR <- exp(mod_multi$coefficients)
+   pval <- anova(mod_multi, test = "LRT")$Pr
    IC <- round(suppressMessages(exp(confint(mod_multi))),round)
    i <- 0
 
    for (OR_var in names(OR)[-1]) {#-1 remove intercept
       i <- i + 1
       n_ligne <- match(OR_var,rownames(rslt))
-      p <- round(as.numeric(pval[i + 1]), round)
-      p <- ifelse(p == 0, "<0.001", p)
+      p <- roundp(as.numeric(pval[i + 1]), round)
       IC_paste <- paste0("[",IC[i + 1, 1], ";", IC[i + 1, 2],"]")
       rslt[n_ligne, 5:7] <- c(signif(OR[i + 1], round), IC_paste, p)
    }
 
    for (n in 1:length(rslt[-1, 4])) {
       p = as.numeric(rslt[n + 1, 4])
-      round(p, round) -> p
-      ifelse(p == 0, "<0.001", p) -> rslt[n + 1, 4]
+      roundp(p, round) -> rslt[n + 1, 4]
    }
 
 

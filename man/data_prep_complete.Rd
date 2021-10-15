@@ -4,7 +4,13 @@
 \alias{data_prep_complete}
 \title{Preparing datas for logistic regression}
 \usage{
-data_prep_complete(DF, y = colnames(DF)[1], verbose = TRUE, keep = FALSE)
+data_prep_complete(
+  DF,
+  y = colnames(DF)[1],
+  explicatives_matrix,
+  verbose = TRUE,
+  keep = FALSE
+)
 }
 \arguments{
 \item{DF}{dataframe : the dataframe to clean}

@@ -25,3 +25,395 @@ drwxrwxr-x 4 tanguy tanguy  4096 oct.   5 10:05 [01;34m.Rproj.user[0m/
  create mode 100644 .gitignore
  create mode 100644 DESCRIPTION
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -ma "check + doc 1"
+error: le spécificateur de chemin 'check + doc 1' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -ma "check + doc 1"[1P
+[main 3c018b5] check + doc 1
+ 33 files changed, 701 insertions(+), 32 deletions(-)
+ create mode 100644 NAMESPACE
+ create mode 100644 man/NA_rm_for_glm.Rd
+ create mode 100644 man/NA_separation.Rd
+ create mode 100644 man/check_dichotomous.Rd
+ create mode 100644 man/checkforfactor.Rd
+ create mode 100644 man/colnames_prep.Rd
+ create mode 100644 man/complete_separation.Rd
+ create mode 100644 man/data_prep_complete.Rd
+ create mode 100644 man/detect_outliers.Rd
+ create mode 100644 man/excel.Rd
+ create mode 100644 man/format_data.Rd
+ create mode 100644 man/formulation.Rd
+ create mode 100644 man/get_explicatives_matrix.Rd
+ create mode 100644 man/logit.Rd
+ create mode 100644 man/multivariate_selection.Rd
+ create mode 100644 man/progressbar.Rd
+ create mode 100644 man/propensity.Rd
+ create mode 100644 man/reglog.Rd
+ create mode 100644 man/stability_proportion.Rd
+ create mode 100644 man/stability_select_meaningful.Rd
+ create mode 100644 man/survivor.Rd
+ create mode 100644 man/table1.Rd
+ create mode 100644 man/tobinary.Rd
+ create mode 100644 man/variables_means.Rd
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est en avance sur 'origin/main' de 3 commits.
+  (utilisez "git push" pour publier vos commits locaux)
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git statuscommit -m "check + doc 1"status[Kcommit -m "check + doc 1"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kpush
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPER  erennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 77, fait.
+Décompte des objets:   1% (1/77)Décompte des objets:   2% (2/77)Décompte des objets:   3% (3/77)Décompte des objets:   5% (4/77)Décompte des objets:   6% (5/77)Décompte des objets:   7% (6/77)Décompte des objets:   9% (7/77)Décompte des objets:  10% (8/77)Décompte des objets:  11% (9/77)Décompte des objets:  12% (10/77)Décompte des objets:  14% (11/77)Décompte des objets:  15% (12/77)Décompte des objets:  16% (13/77)Décompte des objets:  18% (14/77)Décompte des objets:  19% (15/77)Décompte des objets:  20% (16/77)Décompte des objets:  22% (17/77)Décompte des objets:  23% (18/77)Décompte des objets:  24% (19/77)Décompte des objets:  25% (20/77)Décompte des objets:  27% (21/77)Décompte des objets:  28% (22/77)Décompte des objets:  29% (23/77)Décompte des objets:  31% (24/77)Décompte des objets:  32% (25/77)Décompte des objets:  33% (26/77)Décompte des objets:  35% (27/77)Décompte des objets:  36% (28/77)Décompte des objets:  37% (29/77)Décompte des objets:  38% (30/77)Décompte des objets:  40% (31/77)Décompte des objets:  41% (32/77)Décompte des objets:  42% (33/77)Décompte des objets:  44% (34/77)Décompte des objets:  45% (35/77)Décompte des objets:  46% (36/77)Décompte des objets:  48% (37/77)Décompte des objets:  49% (38/77)Décompte des objets:  50% (39/77)Décompte des objets:  51% (40/77)Décompte des objets:  53% (41/77)Décompte des objets:  54% (42/77)Décompte des objets:  55% (43/77)Décompte des objets:  57% (44/77)Décompte des objets:  58% (45/77)Décompte des objets:  59% (46/77)Décompte des objets:  61% (47/77)Décompte des objets:  62% (48/77)Décompte des objets:  63% (49/77)Décompte des objets:  64% (50/77)Décompte des objets:  66% (51/77)Décompte des objets:  67% (52/77)Décompte des objets:  68% (53/77)Décompte des objets:  70% (54/77)Décompte des objets:  71% (55/77)Décompte des objets:  72% (56/77)Décompte des objets:  74% (57/77)Décompte des objets:  75% (58/77)Décompte des objets:  76% (59/77)Décompte des objets:  77% (60/77)Décompte des objets:  79% (61/77)Décompte des objets:  80% (62/77)Décompte des objets:  81% (63/77)Décompte des objets:  83% (64/77)Décompte des objets:  84% (65/77)Décompte des objets:  85% (66/77)Décompte des objets:  87% (67/77)Décompte des objets:  88% (68/77)Décompte des objets:  89% (69/77)Décompte des objets:  90% (70/77)Décompte des objets:  92% (71/77)Décompte des objets:  93% (72/77)Décompte des objets:  94% (73/77)Décompte des objets:  96% (74/77)Décompte des objets:  97% (75/77)Décompte des objets:  98% (76/77)Décompte des objets: 100% (77/77)Décompte des objets: 100% (77/77), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   1% (1/62)Compression des objets:   3% (2/62)Compression des objets:   4% (3/62)Compression des objets:   6% (4/62)Compression des objets:   8% (5/62)Compression des objets:   9% (6/62)Compression des objets:  11% (7/62)Compression des objets:  12% (8/62)Compression des objets:  14% (9/62)Compression des objets:  16% (10/62)Compression des objets:  17% (11/62)Compression des objets:  19% (12/62)Compression des objets:  20% (13/62)Compression des objets:  22% (14/62)Compression des objets:  24% (15/62)Compression des objets:  25% (16/62)Compression des objets:  27% (17/62)Compression des objets:  29% (18/62)Compression des objets:  30% (19/62)Compression des objets:  32% (20/62)Compression des objets:  33% (21/62)Compression des objets:  35% (22/62)Compression des objets:  37% (23/62)Compression des objets:  38% (24/62)Compression des objets:  40% (25/62)Compression des objets:  41% (26/62)Compression des objets:  43% (27/62)Compression des objets:  45% (28/62)Compression des objets:  46% (29/62)Compression des objets:  48% (30/62)Compression des objets:  50% (31/62)Compression des objets:  51% (32/62)Compression des objets:  53% (33/62)Compression des objets:  54% (34/62)Compression des objets:  56% (35/62)Compression des objets:  58% (36/62)Compression des objets:  59% (37/62)Compression des objets:  61% (38/62)Compression des objets:  62% (39/62)Compression des objets:  64% (40/62)Compression des objets:  66% (41/62)Compression des objets:  67% (42/62)Compression des objets:  69% (43/62)Compression des objets:  70% (44/62)Compression des objets:  72% (45/62)Compression des objets:  74% (46/62)Compression des objets:  75% (47/62)Compression des objets:  77% (48/62)Compression des objets:  79% (49/62)Compression des objets:  80% (50/62)Compression des objets:  82% (51/62)Compression des objets:  83% (52/62)Compression des objets:  85% (53/62)Compression des objets:  87% (54/62)Compression des objets:  88% (55/62)Compression des objets:  90% (56/62)Compression des objets:  91% (57/62)Compression des objets:  93% (58/62)Compression des objets:  95% (59/62)Compression des objets:  96% (60/62)Compression des objets:  98% (61/62)Compression des objets: 100% (62/62)Compression des objets: 100% (62/62), fait.
+Écriture des objets:   1% (1/68)Écriture des objets:   2% (2/68)Écriture des objets:   4% (3/68)Écriture des objets:   5% (4/68)Écriture des objets:   7% (5/68)Écriture des objets:   8% (6/68)Écriture des objets:  10% (7/68)Écriture des objets:  11% (8/68)Écriture des objets:  13% (9/68)Écriture des objets:  16% (11/68)Écriture des objets:  17% (12/68)Écriture des objets:  19% (13/68)Écriture des objets:  20% (14/68)Écriture des objets:  22% (15/68)Écriture des objets:  23% (16/68)Écriture des objets:  25% (17/68)Écriture des objets:  26% (18/68)Écriture des objets:  27% (19/68)Écriture des objets:  29% (20/68)Écriture des objets:  30% (21/68)Écriture des objets:  32% (22/68)Écriture des objets:  33% (23/68)Écriture des objets:  35% (24/68)Écriture des objets:  36% (25/68)Écriture des objets:  38% (26/68)Écriture des objets:  39% (27/68)Écriture des objets:  42% (29/68)Écriture des objets:  44% (30/68)Écriture des objets:  45% (31/68)Écriture des objets:  47% (32/68)Écriture des objets:  48% (33/68)Écriture des objets:  50% (34/68)Écriture des objets:  51% (35/68)Écriture des objets:  52% (36/68)Écriture des objets:  54% (37/68)Écriture des objets:  55% (38/68)Écriture des objets:  57% (39/68)Écriture des objets:  58% (40/68)Écriture des objets:  60% (41/68)Écriture des objets:  61% (42/68)Écriture des objets:  63% (43/68)Écriture des objets:  64% (44/68)Écriture des objets:  66% (45/68)Écriture des objets:  67% (46/68)Écriture des objets:  69% (47/68)Écriture des objets:  70% (48/68)Écriture des objets:  72% (49/68)Écriture des objets:  73% (50/68)Écriture des objets:  75% (51/68)Écriture des objets:  76% (52/68)Écriture des objets:  77% (53/68)Écriture des objets:  79% (54/68)Écriture des objets:  80% (55/68)Écriture des objets:  82% (56/68)Écriture des objets:  83% (57/68)Écriture des objets:  85% (58/68)Écriture des objets:  86% (59/68)Écriture des objets:  88% (60/68)Écriture des objets:  89% (61/68)Écriture des objets:  91% (62/68)Écriture des objets:  92% (63/68)Écriture des objets:  94% (64/68)Écriture des objets:  95% (65/68)Écriture des objets:  97% (66/68)Écriture des objets:  98% (67/68)Écriture des objets: 100% (68/68)Écriture des objets: 100% (68/68), 20.32 Kio | 2.26 Mio/s, fait.
+Total 68 (delta 17), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/17)[Kremote: Resolving deltas:   5% (1/17)[Kremote: Resolving deltas:  11% (2/17)[Kremote: Resolving deltas:  17% (3/17)[Kremote: Resolving deltas:  23% (4/17)[Kremote: Resolving deltas:  29% (5/17)[Kremote: Resolving deltas:  35% (6/17)[Kremote: Resolving deltas:  41% (7/17)[Kremote: Resolving deltas:  47% (8/17)[Kremote: Resolving deltas:  52% (9/17)[Kremote: Resolving deltas:  58% (10/17)[Kremote: Resolving deltas:  64% (11/17)[Kremote: Resolving deltas:  70% (12/17)[Kremote: Resolving deltas:  76% (13/17)[Kremote: Resolving deltas:  82% (14/17)[Kremote: Resolving deltas:  88% (15/17)[Kremote: Resolving deltas:  94% (16/17)[Kremote: Resolving deltas: 100% (17/17)[Kremote: Resolving deltas: 100% (17/17), completed with 8 local objects.[K
+To https://github.com/TanguyPerennec/AutostatR.git
+   3049ade..3c018b5  main -> main
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est à jour avec 'origin/main'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git pull
+remote: Enumerating objects: 26, done.[K
+remote: Counting objects:   3% (1/26)[Kremote: Counting objects:   7% (2/26)[Kremote: Counting objects:  11% (3/26)[Kremote: Counting objects:  15% (4/26)[Kremote: Counting objects:  19% (5/26)[Kremote: Counting objects:  23% (6/26)[Kremote: Counting objects:  26% (7/26)[Kremote: Counting objects:  30% (8/26)[Kremote: Counting objects:  34% (9/26)[Kremote: Counting objects:  38% (10/26)[Kremote: Counting objects:  42% (11/26)[Kremote: Counting objects:  46% (12/26)[Kremote: Counting objects:  50% (13/26)[Kremote: Counting objects:  53% (14/26)[Kremote: Counting objects:  57% (15/26)[Kremote: Counting objects:  61% (16/26)[Kremote: Counting objects:  65% (17/26)[Kremote: Counting objects:  69% (18/26)[Kremote: Counting objects:  73% (19/26)[Kremote: Counting objects:  76% (20/26)[Kremote: Counting objects:  80% (21/26)[Kremote: Counting objects:  84% (22/26)[Kremote: Counting objects:  88% (23/26)[Kremote: Counting objects:  92% (24/26)[Kremote: Counting objects:  96% (25/26)[Kremote: Counting objects: 100% (26/26)[Kremote: Counting objects: 100% (26/26), done.[K
+remote: Compressing objects:  25% (1/4)[Kremote: Compressing objects:  50% (2/4)[Kremote: Compressing objects:  75% (3/4)[Kremote: Compressing objects: 100% (4/4)[Kremote: Compressing objects: 100% (4/4), done.[K
+Dépaquetage des objets:   5% (1/17)Dépaquetage des objets:  11% (2/17)Dépaquetage des objets:  17% (3/17)Dépaquetage des objets:  23% (4/17)Dépaquetage des objets:  29% (5/17)Dépaquetage des objets:  35% (6/17)Dépaquetage des objets:  41% (7/17)remote: Total 17 (delta 12), reused 17 (delta 12), pack-reused 0[K
+Dépaquetage des objets:  47% (8/17)Dépaquetage des objets:  52% (9/17)Dépaquetage des objets:  58% (10/17)Dépaquetage des objets:  64% (11/17)Dépaquetage des objets:  70% (12/17)Dépaquetage des objets:  76% (13/17)Dépaquetage des objets:  82% (14/17)Dépaquetage des objets:  88% (15/17)Dépaquetage des objets:  94% (16/17)Dépaquetage des objets: 100% (17/17)Dépaquetage des objets: 100% (17/17), 13.22 Kio | 152.00 Kio/s, fait.
+Depuis https://github.com/TanguyPerennec/AutostatR
+   3c018b5..817c85b  main       -> origin/main
+Mise à jour 3c018b5..817c85b
+Fast-forward
+ .Rbuildignore                  |   3 [32m+[m
+ DESCRIPTION                    |   4 [32m+[m[31m-[m
+ LICENSE                        | 661 [31m-----------------------------------------------------------------------------------------[m
+ LICENSE.md                     | 659 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ R/reglog.R                     |   9 [32m+[m[31m-[m
+ R/table1.R                     |   2 [32m+[m[31m-[m
+ R/utils.R                      |   3 [32m+[m[31m-[m
+ man/get_explicatives_matrix.Rd |   4 [32m+[m[31m-[m
+ man/reglog.Rd                  |  14 [32m+[m[31m-[m
+ 9 files changed, 690 insertions(+), 669 deletions(-)
+ create mode 100644 .Rbuildignore
+ delete mode 100644 LICENSE
+ create mode 100644 LICENSE.md
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "reglog [K[K[K[K[K[K[Krephrase reglog"
+[main 574dee1] rephrase reglog
+ 2 files changed, 93 insertions(+), 10 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+fatal: impossible d'accéder à 'https://github.com/TanguyPerennec/AutostatR.git/' : Could not resolve host: github.com
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPerennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 15, fait.
+Décompte des objets:   6% (1/15)Décompte des objets:  13% (2/15)Décompte des objets:  20% (3/15)Décompte des objets:  26% (4/15)Décompte des objets:  33% (5/15)Décompte des objets:  40% (6/15)Décompte des objets:  46% (7/15)Décompte des objets:  53% (8/15)Décompte des objets:  60% (9/15)Décompte des objets:  66% (10/15)Décompte des objets:  73% (11/15)Décompte des objets:  80% (12/15)Décompte des objets:  86% (13/15)Décompte des objets:  93% (14/15)Décompte des objets: 100% (15/15)Décompte des objets: 100% (15/15), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:  12% (1/8)Compression des objets:  25% (2/8)Compression des objets:  37% (3/8)Compression des objets:  50% (4/8)Compression des objets:  62% (5/8)Compression des objets:  75% (6/8)Compression des objets:  87% (7/8)Compression des objets: 100% (8/8)Compression des objets: 100% (8/8), fait.
+Écriture des objets:  12% (1/8)Écriture des objets:  25% (2/8)Écriture des objets:  37% (3/8)Écriture des objets:  50% (4/8)Écriture des objets:  62% (5/8)Écriture des objets:  75% (6/8)Écriture des objets:  87% (7/8)Écriture des objets: 100% (8/8)Écriture des objets: 100% (8/8), 3.84 Kio | 1.28 Mio/s, fait.
+Total 8 (delta 3), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/TanguyPerennec/AutostatR.git
+   817c85b..574dee1  main -> main
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ commit add .
+commit : commande introuvable
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit ad[K[K[K[K[K[K[K[K[K[K add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ comm[K[K[K[Kgit commit m "minor changes with syntax" "a"n"d" "c"o"n"f"i"r"m"a"t"i"o"n" "t"o" "F"a"l"s"e" "f"o"r" "f"a"c"t"o"r"s"
+error: le spécificateur de chemin 'm' ne correspond à aucun fichier connu de git
+error: le spécificateur de chemin 'minor changes with syntax and confirmation to False for factors' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit m "minor changes with syntax and confirmation to False for factors"[C[1@-
+[main af1eb4c] minor changes with syntax and confirmation to False for factors
+ 9 files changed, 36 insertions(+), 28 deletions(-)
+ create mode 100644 tableau1.xlsx
+ create mode 100644 tableau2.xlsx
+ create mode 100644 tableau3.xlsx
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit - [Kam "change p for LRT"
+[main 0e25b2d] change p for LRT
+ 6 files changed, 28 insertions(+), 31 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPerennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 44, fait.
+Décompte des objets:   2% (1/44)Décompte des objets:   4% (2/44)Décompte des objets:   6% (3/44)Décompte des objets:   9% (4/44)Décompte des objets:  11% (5/44)Décompte des objets:  13% (6/44)Décompte des objets:  15% (7/44)Décompte des objets:  18% (8/44)Décompte des objets:  20% (9/44)Décompte des objets:  22% (10/44)Décompte des objets:  25% (11/44)Décompte des objets:  27% (12/44)Décompte des objets:  29% (13/44)Décompte des objets:  31% (14/44)Décompte des objets:  34% (15/44)Décompte des objets:  36% (16/44)Décompte des objets:  38% (17/44)Décompte des objets:  40% (18/44)Décompte des objets:  43% (19/44)Décompte des objets:  45% (20/44)Décompte des objets:  47% (21/44)Décompte des objets:  50% (22/44)Décompte des objets:  52% (23/44)Décompte des objets:  54% (24/44)Décompte des objets:  56% (25/44)Décompte des objets:  59% (26/44)Décompte des objets:  61% (27/44)Décompte des objets:  63% (28/44)Décompte des objets:  65% (29/44)Décompte des objets:  68% (30/44)Décompte des objets:  70% (31/44)Décompte des objets:  72% (32/44)Décompte des objets:  75% (33/44)Décompte des objets:  77% (34/44)Décompte des objets:  79% (35/44)Décompte des objets:  81% (36/44)Décompte des objets:  84% (37/44)Décompte des objets:  86% (38/44)Décompte des objets:  88% (39/44)Décompte des objets:  90% (40/44)Décompte des objets:  93% (41/44)Décompte des objets:  95% (42/44)Décompte des objets:  97% (43/44)Décompte des objets: 100% (44/44)Décompte des objets: 100% (44/44), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   3% (1/28)Compression des objets:   7% (2/28)Compression des objets:  10% (3/28)Compression des objets:  14% (4/28)Compression des objets:  17% (5/28)Compression des objets:  21% (6/28)Compression des objets:  25% (7/28)Compression des objets:  28% (8/28)Compression des objets:  32% (9/28)Compression des objets:  35% (10/28)Compression des objets:  39% (11/28)Compression des objets:  42% (12/28)Compression des objets:  46% (13/28)Compression des objets:  50% (14/28)Compression des objets:  53% (15/28)Compression des objets:  57% (16/28)Compression des objets:  60% (17/28)Compression des objets:  64% (18/28)Compression des objets:  67% (19/28)Compression des objets:  71% (20/28)Compression des objets:  75% (21/28)Compression des objets:  78% (22/28)Compression des objets:  82% (23/28)Compression des objets:  85% (24/28)Compression des objets:  89% (25/28)Compression des objets:  92% (26/28)Compression des objets:  96% (27/28)Compression des objets: 100% (28/28)Compression des objets: 100% (28/28), fait.
+Écriture des objets:   3% (1/28)Écriture des objets:   7% (2/28)Écriture des objets:  10% (3/28)Écriture des objets:  14% (4/28)Écriture des objets:  17% (5/28)Écriture des objets:  21% (6/28)Écriture des objets:  25% (7/28)Écriture des objets:  28% (8/28)Écriture des objets:  32% (9/28)Écriture des objets:  35% (10/28)Écriture des objets:  39% (11/28)Écriture des objets:  42% (12/28)Écriture des objets:  46% (13/28)Écriture des objets:  50% (14/28)Écriture des objets:  57% (16/28)Écriture des objets:  60% (17/28)Écriture des objets:  64% (18/28)Écriture des objets:  67% (19/28)Écriture des objets:  75% (21/28)Écriture des objets:  78% (22/28)Écriture des objets:  82% (23/28)Écriture des objets:  85% (24/28)Écriture des objets:  89% (25/28)Écriture des objets:  92% (26/28)Écriture des objets:  96% (27/28)Écriture des objets: 100% (28/28)Écriture des objets: 100% (28/28), 12.38 Kio | 3.09 Mio/s, fait.
+Total 28 (delta 18), réutilisés 0 (delta 0)
+fatal: L'hôte distant a fermé la connexion de manière inattendue
+fatal: L'hôte distant a fermé la connexion de manière inattendue
+Everything up-to-date
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est en avance sur 'origin/main' de 2 commits.
+  (utilisez "git push" pour publier vos commits locaux)
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         R/multivariate_selection.R[m
+	[31mmodifié :         R/utils.R[m
+
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+	[31mtableau.xlsx[m
+	[31mtableau_all.xlsx[m
+	[31mtableau_reg2.xlsx[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status[K[K[K[K[K[Kcommit -m "verif"
+[main 01406bc] verif
+ 6 files changed, 205 insertions(+), 182 deletions(-)
+ create mode 100644 tableau.xlsx
+ create mode 100644 tableau_all.xlsx
+ create mode 100644 tableau_reg2.xlsx
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPerennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 57, fait.
+Décompte des objets:   1% (1/57)Décompte des objets:   3% (2/57)Décompte des objets:   5% (3/57)Décompte des objets:   7% (4/57)Décompte des objets:   8% (5/57)Décompte des objets:  10% (6/57)Décompte des objets:  12% (7/57)Décompte des objets:  14% (8/57)Décompte des objets:  15% (9/57)Décompte des objets:  17% (10/57)Décompte des objets:  19% (11/57)Décompte des objets:  21% (12/57)Décompte des objets:  22% (13/57)Décompte des objets:  24% (14/57)Décompte des objets:  26% (15/57)Décompte des objets:  28% (16/57)Décompte des objets:  29% (17/57)Décompte des objets:  31% (18/57)Décompte des objets:  33% (19/57)Décompte des objets:  35% (20/57)Décompte des objets:  36% (21/57)Décompte des objets:  38% (22/57)Décompte des objets:  40% (23/57)Décompte des objets:  42% (24/57)Décompte des objets:  43% (25/57)Décompte des objets:  45% (26/57)Décompte des objets:  47% (27/57)Décompte des objets:  49% (28/57)Décompte des objets:  50% (29/57)Décompte des objets:  52% (30/57)Décompte des objets:  54% (31/57)Décompte des objets:  56% (32/57)Décompte des objets:  57% (33/57)Décompte des objets:  59% (34/57)Décompte des objets:  61% (35/57)Décompte des objets:  63% (36/57)Décompte des objets:  64% (37/57)Décompte des objets:  66% (38/57)Décompte des objets:  68% (39/57)Décompte des objets:  70% (40/57)Décompte des objets:  71% (41/57)Décompte des objets:  73% (42/57)Décompte des objets:  75% (43/57)Décompte des objets:  77% (44/57)Décompte des objets:  78% (45/57)Décompte des objets:  80% (46/57)Décompte des objets:  82% (47/57)Décompte des objets:  84% (48/57)Décompte des objets:  85% (49/57)Décompte des objets:  87% (50/57)Décompte des objets:  89% (51/57)Décompte des objets:  91% (52/57)Décompte des objets:  92% (53/57)Décompte des objets:  94% (54/57)Décompte des objets:  96% (55/57)Décompte des objets:  98% (56/57)Décompte des objets: 100% (57/57)Décompte des objets: 100% (57/57), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   2% (1/40)Compression des objets:   5% (2/40)Compression des objets:   7% (3/40)Compression des objets:  10% (4/40)Compression des objets:  12% (5/40)Compression des objets:  15% (6/40)Compression des objets:  17% (7/40)Compression des objets:  20% (8/40)Compression des objets:  22% (9/40)Compression des objets:  25% (10/40)Compression des objets:  27% (11/40)Compression des objets:  30% (12/40)Compression des objets:  32% (13/40)Compression des objets:  35% (14/40)Compression des objets:  37% (15/40)Compression des objets:  40% (16/40)Compression des objets:  42% (17/40)Compression des objets:  45% (18/40)Compression des objets:  47% (19/40)Compression des objets:  50% (20/40)Compression des objets:  52% (21/40)Compression des objets:  55% (22/40)Compression des objets:  57% (23/40)Compression des objets:  60% (24/40)Compression des objets:  62% (25/40)Compression des objets:  65% (26/40)Compression des objets:  67% (27/40)Compression des objets:  70% (28/40)Compression des objets:  72% (29/40)Compression des objets:  75% (30/40)Compression des objets:  77% (31/40)Compression des objets:  80% (32/40)Compression des objets:  82% (33/40)Compression des objets:  85% (34/40)Compression des objets:  87% (35/40)Compression des objets:  90% (36/40)Compression des objets:  92% (37/40)Compression des objets:  95% (38/40)Compression des objets:  97% (39/40)Compression des objets: 100% (40/40)Compression des objets: 100% (40/40), fait.
+Écriture des objets:   2% (1/40)Écriture des objets:   5% (2/40)Écriture des objets:   7% (3/40)Écriture des objets:  10% (4/40)Écriture des objets:  12% (5/40)Écriture des objets:  15% (6/40)Écriture des objets:  17% (7/40)Écriture des objets:  20% (8/40)Écriture des objets:  22% (9/40)Écriture des objets:  25% (10/40)Écriture des objets:  27% (11/40)Écriture des objets:  30% (12/40)Écriture des objets:  32% (13/40)Écriture des objets:  35% (14/40)Écriture des objets:  37% (15/40)Écriture des objets:  42% (17/40)Écriture des objets:  45% (18/40)Écriture des objets:  47% (19/40)Écriture des objets:  50% (20/40)Écriture des objets:  52% (21/40)Écriture des objets:  55% (22/40)Écriture des objets:  60% (24/40)Écriture des objets:  62% (25/40)Écriture des objets:  65% (26/40)Écriture des objets:  67% (27/40)Écriture des objets:  70% (28/40)Écriture des objets:  72% (29/40)Écriture des objets:  75% (30/40)Écriture des objets:  77% (31/40)Écriture des objets:  80% (32/40)Écriture des objets:  82% (33/40)Écriture des objets:  85% (34/40)Écriture des objets:  87% (35/40)Écriture des objets:  90% (36/40)Écriture des objets:  92% (37/40)Écriture des objets:  95% (38/40)Écriture des objets:  97% (39/40)Écriture des objets: 100% (40/40)Écriture des objets: 100% (40/40), 19.94 Kio | 3.32 Mio/s, fait.
+Total 40 (delta 25), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/25)[Kremote: Resolving deltas:   4% (1/25)[Kremote: Resolving deltas:   8% (2/25)[Kremote: Resolving deltas:  12% (3/25)[Kremote: Resolving deltas:  16% (4/25)[Kremote: Resolving deltas:  20% (5/25)[Kremote: Resolving deltas:  24% (6/25)[Kremote: Resolving deltas:  28% (7/25)[Kremote: Resolving deltas:  32% (8/25)[Kremote: Resolving deltas:  36% (9/25)[Kremote: Resolving deltas:  40% (10/25)[Kremote: Resolving deltas:  44% (11/25)[Kremote: Resolving deltas:  48% (12/25)[Kremote: Resolving deltas:  52% (13/25)[Kremote: Resolving deltas:  56% (14/25)[Kremote: Resolving deltas:  60% (15/25)[Kremote: Resolving deltas:  64% (16/25)[Kremote: Resolving deltas:  68% (17/25)[Kremote: Resolving deltas:  72% (18/25)[Kremote: Resolving deltas:  76% (19/25)[Kremote: Resolving deltas:  80% (20/25)[Kremote: Resolving deltas:  84% (21/25)[Kremote: Resolving deltas:  88% (22/25)[Kremote: Resolving deltas:  92% (23/25)[Kremote: Resolving deltas:  96% (24/25)[Kremote: Resolving deltas: 100% (25/25)[Kremote: Resolving deltas: 100% (25/25), completed with 13 local objects.[K
+To https://github.com/TanguyPerennec/AutostatR.git
+   574dee1..01406bc  main -> main
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -l[Km "stop [K[K[K[K[Kdelete excels"
+[main dce748f] delete excels
+ 7 files changed, 22 insertions(+), 1 deletion(-)
+ delete mode 100644 tableau.xlsx
+ delete mode 100644 tableau1.xlsx
+ delete mode 100644 tableau2.xlsx
+ delete mode 100644 tableau3.xlsx
+ delete mode 100644 tableau_all.xlsx
+ delete mode 100644 tableau_reg2.xlsx
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+Énumération des objets: 11, fait.
+Décompte des objets:   9% (1/11)Décompte des objets:  18% (2/11)Décompte des objets:  27% (3/11)Décompte des objets:  36% (4/11)Décompte des objets:  45% (5/11)Décompte des objets:  54% (6/11)Décompte des objets:  63% (7/11)Décompte des objets:  72% (8/11)Décompte des objets:  81% (9/11)Décompte des objets:  90% (10/11)Décompte des objets: 100% (11/11)Décompte des objets: 100% (11/11), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:  16% (1/6)Compression des objets:  33% (2/6)Compression des objets:  50% (3/6)Compression des objets:  66% (4/6)Compression des objets:  83% (5/6)Compression des objets: 100% (6/6)Compression des objets: 100% (6/6), fait.
+Écriture des objets:  16% (1/6)Écriture des objets:  33% (2/6)Écriture des objets:  50% (3/6)Écriture des objets:  66% (4/6)Écriture des objets:  83% (5/6)Écriture des objets: 100% (6/6)Écriture des objets: 100% (6/6), 1.60 Kio | 1.60 Mio/s, fait.
+Total 6 (delta 2), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/TanguyPerennec/AutostatR.git
+   01406bc..dce748f  main -> main
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git -am "[K[K[K[K[Kcommit -ma[K[Kam "P[Kroundp pour glm"
+[main 1cb9e8b] roundp pour glm
+ 2 files changed, 24 insertions(+), 6 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "roundp pour glm"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksuppr ARG2"
+[main 1ee957f] suppr ARG2
+ 2 files changed, 4 insertions(+), 11 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+Énumération des objets: 23, fait.
+Décompte des objets:   4% (1/23)Décompte des objets:   8% (2/23)Décompte des objets:  13% (3/23)Décompte des objets:  17% (4/23)Décompte des objets:  21% (5/23)Décompte des objets:  26% (6/23)Décompte des objets:  30% (7/23)Décompte des objets:  34% (8/23)Décompte des objets:  39% (9/23)Décompte des objets:  43% (10/23)Décompte des objets:  47% (11/23)Décompte des objets:  52% (12/23)Décompte des objets:  56% (13/23)Décompte des objets:  60% (14/23)Décompte des objets:  65% (15/23)Décompte des objets:  69% (16/23)Décompte des objets:  73% (17/23)Décompte des objets:  78% (18/23)Décompte des objets:  82% (19/23)Décompte des objets:  86% (20/23)Décompte des objets:  91% (21/23)Décompte des objets:  95% (22/23)Décompte des objets: 100% (23/23)Décompte des objets: 100% (23/23), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   6% (1/16)Compression des objets:  12% (2/16)Compression des objets:  18% (3/16)Compression des objets:  25% (4/16)Compression des objets:  31% (5/16)Compression des objets:  37% (6/16)Compression des objets:  43% (7/16)Compression des objets:  50% (8/16)Compression des objets:  56% (9/16)Compression des objets:  62% (10/16)Compression des objets:  68% (11/16)Compression des objets:  75% (12/16)Compression des objets:  81% (13/16)Compression des objets:  87% (14/16)Compression des objets:  93% (15/16)Compression des objets: 100% (16/16)Compression des objets: 100% (16/16), fait.
+Écriture des objets:   6% (1/16)Écriture des objets:  12% (2/16)Écriture des objets:  18% (3/16)Écriture des objets:  25% (4/16)Écriture des objets:  31% (5/16)Écriture des objets:  37% (6/16)Écriture des objets:  43% (7/16)Écriture des objets:  50% (8/16)Écriture des objets:  62% (10/16)Écriture des objets:  68% (11/16)Écriture des objets:  75% (12/16)Écriture des objets:  81% (13/16)Écriture des objets:  87% (14/16)Écriture des objets:  93% (15/16)Écriture des objets: 100% (16/16)Écriture des objets: 100% (16/16), 1.85 Kio | 949.00 Kio/s, fait.
+Total 16 (delta 8), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  12% (1/8)[Kremote: Resolving deltas:  25% (2/8)[Kremote: Resolving deltas:  37% (3/8)[Kremote: Resolving deltas:  50% (4/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 4 local objects.[K
+To https://github.com/TanguyPerennec/AutostatR.git
+   dce748f..1ee957f  main -> main
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est à jour avec 'origin/main'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/INDEX001[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git pull
+Déjà à jour.
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch
+[?1h=* [32mmain[m[m
+[K[?1l>]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch -av
+[?1h=* [32mmain               [m 1ee957f suppr ARG2[m
+  [31mremotes/origin/HEAD[m -> origin/main[m
+  [31mremotes/origin/main[m 1ee957f suppr ARG2[m
+[K[?1l>]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch reglog-toapply
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch reglog-toapply[C[C[C[C[C[C[1P reglog-toapply[1P reglog-toapply[1P reglog-toapply[1P reglog-toapply[1P reglog-toapply[1P reglog-toapplyc reglog-toapplyh reglog-toapplye reglog-toapplyc reglog-toapplyk reglog-toapplyo reglog-toapplyu reglog-toapplyt reglog-toapply
+M	.Rproj.user/C61DC93E/console06/E513A477
+M	.Rproj.user/C61DC93E/console06/INDEX001
+Basculement sur la branche 'reglog-toapply'
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch
+[?1h=  main[m[m
+* [32mreglog-toapply[m[m
+[K[?1l>]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git stage
+Rien de spécifié, rien n'a été ajouté.
+Vous vouliez sûrement dire 'git add .' ?
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git stage
+Rien de spécifié, rien n'a été ajouté.
+Vous vouliez sûrement dire 'git add .' ?
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ [K(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "explicatives to explicatives_matrix"
+[reglog-toapply 988c5e8] explicatives to explicatives_matrix
+ 15 files changed, 104 insertions(+), 69 deletions(-)
+ create mode 100644 tableau.xlsx
+ create mode 100644 tableau1.xlsx
+ create mode 100644 tableau2.xlsx
+ create mode 100644 tableau3.xlsx
+ create mode 100644 tableau_reg2.xlsx
+"""]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ """[K[K[Kgit commit -am "explicatives to explicatives_matrix"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[1P"[Kc"o"[1P"[1P"[C"c"o"r"r"e"c"t" "e"x"c"e"l" "f"i"l"e"s"
+[reglog-toapply 7945817] correct excel files
+ 7 files changed, 10 insertions(+), 2 deletions(-)
+ delete mode 100644 tableau.xlsx
+ delete mode 100644 tableau1.xlsx
+ delete mode 100644 tableau2.xlsx
+ delete mode 100644 tableau3.xlsx
+ delete mode 100644 tableau_reg2.xlsx
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+fatal: La branche courante reglog-toapply n'a pas de branche amont.
+Pour pousser la branche courante et définir la distante comme amont, utilisez
+
+    git push --set-upstream origin reglog-toapply
+
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ ^C
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push --set-upstream origin reglog-toapply
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Username for 'https://github.com': TanguyPerennec
+error: cannot run rpostback-askpass: Aucun fichier ou dossier de ce type
+Password for 'https://TanguyPerennec@github.com': 
+Énumération des objets: 45, fait.
+Décompte des objets:   2% (1/45)Décompte des objets:   4% (2/45)Décompte des objets:   6% (3/45)Décompte des objets:   8% (4/45)Décompte des objets:  11% (5/45)Décompte des objets:  13% (6/45)Décompte des objets:  15% (7/45)Décompte des objets:  17% (8/45)Décompte des objets:  20% (9/45)Décompte des objets:  22% (10/45)Décompte des objets:  24% (11/45)Décompte des objets:  26% (12/45)Décompte des objets:  28% (13/45)Décompte des objets:  31% (14/45)Décompte des objets:  33% (15/45)Décompte des objets:  35% (16/45)Décompte des objets:  37% (17/45)Décompte des objets:  40% (18/45)Décompte des objets:  42% (19/45)Décompte des objets:  44% (20/45)Décompte des objets:  46% (21/45)Décompte des objets:  48% (22/45)Décompte des objets:  51% (23/45)Décompte des objets:  53% (24/45)Décompte des objets:  55% (25/45)Décompte des objets:  57% (26/45)Décompte des objets:  60% (27/45)Décompte des objets:  62% (28/45)Décompte des objets:  64% (29/45)Décompte des objets:  66% (30/45)Décompte des objets:  68% (31/45)Décompte des objets:  71% (32/45)Décompte des objets:  73% (33/45)Décompte des objets:  75% (34/45)Décompte des objets:  77% (35/45)Décompte des objets:  80% (36/45)Décompte des objets:  82% (37/45)Décompte des objets:  84% (38/45)Décompte des objets:  86% (39/45)Décompte des objets:  88% (40/45)Décompte des objets:  91% (41/45)Décompte des objets:  93% (42/45)Décompte des objets:  95% (43/45)Décompte des objets:  97% (44/45)Décompte des objets: 100% (45/45)Décompte des objets: 100% (45/45), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:   3% (1/29)Compression des objets:   6% (2/29)Compression des objets:  10% (3/29)Compression des objets:  13% (4/29)Compression des objets:  17% (5/29)Compression des objets:  20% (6/29)Compression des objets:  24% (7/29)Compression des objets:  27% (8/29)Compression des objets:  31% (9/29)Compression des objets:  34% (10/29)Compression des objets:  37% (11/29)Compression des objets:  41% (12/29)Compression des objets:  44% (13/29)Compression des objets:  48% (14/29)Compression des objets:  51% (15/29)Compression des objets:  55% (16/29)Compression des objets:  58% (17/29)Compression des objets:  62% (18/29)Compression des objets:  65% (19/29)Compression des objets:  68% (20/29)Compression des objets:  72% (21/29)Compression des objets:  75% (22/29)Compression des objets:  79% (23/29)Compression des objets:  82% (24/29)Compression des objets:  86% (25/29)Compression des objets:  89% (26/29)Compression des objets:  93% (27/29)Compression des objets:  96% (28/29)Compression des objets: 100% (29/29)Compression des objets: 100% (29/29), fait.
+Écriture des objets:   3% (1/29)Écriture des objets:   6% (2/29)Écriture des objets:  13% (4/29)Écriture des objets:  17% (5/29)Écriture des objets:  20% (6/29)Écriture des objets:  24% (7/29)Écriture des objets:  27% (8/29)Écriture des objets:  31% (9/29)Écriture des objets:  34% (10/29)Écriture des objets:  37% (11/29)Écriture des objets:  41% (12/29)Écriture des objets:  44% (13/29)Écriture des objets:  48% (14/29)Écriture des objets:  51% (15/29)Écriture des objets:  55% (16/29)Écriture des objets:  58% (17/29)Écriture des objets:  62% (18/29)Écriture des objets:  65% (19/29)Écriture des objets:  68% (20/29)Écriture des objets:  72% (21/29)Écriture des objets:  75% (22/29)Écriture des objets:  79% (23/29)Écriture des objets:  82% (24/29)Écriture des objets:  86% (25/29)Écriture des objets:  93% (27/29)Écriture des objets:  96% (28/29)Écriture des objets: 100% (29/29)Écriture des objets: 100% (29/29), 16.93 Kio | 2.42 Mio/s, fait.
+Total 29 (delta 17), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/17)[Kremote: Resolving deltas:   5% (1/17)[Kremote: Resolving deltas:  11% (2/17)[Kremote: Resolving deltas:  17% (3/17)[Kremote: Resolving deltas:  23% (4/17)[Kremote: Resolving deltas:  29% (5/17)[Kremote: Resolving deltas:  35% (6/17)[Kremote: Resolving deltas:  41% (7/17)[Kremote: Resolving deltas:  47% (8/17)[Kremote: Resolving deltas:  52% (9/17)[Kremote: Resolving deltas:  58% (10/17)[Kremote: Resolving deltas:  64% (11/17)[Kremote: Resolving deltas:  70% (12/17)[Kremote: Resolving deltas:  76% (13/17)[Kremote: Resolving deltas:  82% (14/17)[Kremote: Resolving deltas:  88% (15/17)[Kremote: Resolving deltas:  94% (16/17)[Kremote: Resolving deltas: 100% (17/17)[Kremote: Resolving deltas: 100% (17/17), completed with 12 local objects.[K
+remote: 
+remote: Create a pull request for 'reglog-toapply' on GitHub by visiting:[K
+remote:      https://github.com/TanguyPerennec/AutostatR/pull/new/reglog-toapply[K
+remote: 
+To https://github.com/TanguyPerennec/AutostatR.git
+ * [new branch]      reglog-toapply -> reglog-toapply
+La branche 'reglog-toapply' est paramétrée pour suivre la branche distante 'reglog-toapply' depuis 'origin'.
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche reglog-toapply
+Votre branche est à jour avec 'origin/reglog-toapply'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477.env[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch
+[?1h=  main[m[m
+* [32mreglog-toapply[m[m
+[K[?1l>]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout remote
+error: le spécificateur de chemin 'remote' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout remote[K[K[K[K[K[K[K
+M	.Rproj.user/C61DC93E/console06/E513A477
+M	.Rproj.user/C61DC93E/console06/E513A477.env
+Votre branche est à jour avec 'origin/reglog-toapply'.
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche reglog-toapply
+Votre branche est à jour avec 'origin/reglog-toapply'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477.env[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git statuscheckout origin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -m "final branch"
+[reglog-toapply 24d5e25] final branch
+ 2 files changed, 73 insertions(+), 3 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -m "final branch"add .[Kcheckout origin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ 
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout originommit -m "final branch"[9Pheckout origin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout originommit -m "final branch"[9Pheckout origin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout origin[K[K[K[K[K[Kmaster
+error: le spécificateur de chemin 'master' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout master[K[K[K[K[K[K[K
+M	.Rproj.user/C61DC93E/console06/E513A477
+Votre branche est en avance sur 'origin/reglog-toapply' de 1 commit.
+  (utilisez "git push" pour publier vos commits locaux)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git push
+Énumération des objets: 13, fait.
+Décompte des objets:   7% (1/13)Décompte des objets:  15% (2/13)Décompte des objets:  23% (3/13)Décompte des objets:  30% (4/13)Décompte des objets:  38% (5/13)Décompte des objets:  46% (6/13)Décompte des objets:  53% (7/13)Décompte des objets:  61% (8/13)Décompte des objets:  69% (9/13)Décompte des objets:  76% (10/13)Décompte des objets:  84% (11/13)Décompte des objets:  92% (12/13)Décompte des objets: 100% (13/13)Décompte des objets: 100% (13/13), fait.
+Compression par delta en utilisant jusqu'à 4 fils d'exécution
+Compression des objets:  14% (1/7)Compression des objets:  28% (2/7)Compression des objets:  42% (3/7)Compression des objets:  57% (4/7)Compression des objets:  71% (5/7)Compression des objets:  85% (6/7)Compression des objets: 100% (7/7)Compression des objets: 100% (7/7), fait.
+Écriture des objets:  14% (1/7)Écriture des objets:  28% (2/7)Écriture des objets:  42% (3/7)Écriture des objets:  57% (4/7)Écriture des objets:  71% (5/7)Écriture des objets:  85% (6/7)Écriture des objets: 100% (7/7)Écriture des objets: 100% (7/7), 1.88 Kio | 962.00 Kio/s, fait.
+Total 7 (delta 3), réutilisés 0 (delta 0)
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/TanguyPerennec/AutostatR.git
+   7945817..24d5e25  reglog-toapply -> reglog-toapply
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git pushcheckout master[K
+M	.Rproj.user/C61DC93E/console06/E513A477
+Votre branche est à jour avec 'origin/reglog-toapply'.
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git merge reglog-toapply
+Déjà à jour.
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout origin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout origin[K[K[K[K[K[Kmaster
+error: le spécificateur de chemin 'master' ne correspond à aucun fichier connu de git
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch -av
+[?1h=  main                         [m 1ee957f suppr ARG2[m
+* [32mreglog-toapply               [m 24d5e25 final branch[m
+  [31mremotes/origin/HEAD          [m -> origin/main[m
+  [31mremotes/origin/main          [m 1ee957f suppr ARG2[m
+  [31mremotes/origin/reglog-toapply[m 24d5e25 final branch[m
+[K[?1l>]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git branch -av[K[K[K[K[K[K[K[K[K[Kcheckout main
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git checkout main[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgit branch -avcheckout masteroriginmerge reglog-toapply[12Pcheckout[4Ppushcheckout masteroriginommit -m "final branch"add .[Kcheckout origin[10Padd .commit -m "final branch"[9Pheckout originommit -m "final branch"[1@a
+[reglog-toapply 7bc6804] final branch
+ 1 file changed, 60 insertions(+), 1 deletion(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "final branch"[Kgit branch -avcheckout master[5Pbranch -av[Kgit branch -avcheckout masteroriginmerge reglog-toapply[5Pcheckout originmaster[K[K[K[Kin
+error: Vos modifications locales aux fichiers suivants seraient écrasées par l'extraction :
+	.Rproj.user/C61DC93E/console06/E513A477
+Veuillez valider ou remiser vos modifications avant de basculer de branche.
+Abandon
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ 

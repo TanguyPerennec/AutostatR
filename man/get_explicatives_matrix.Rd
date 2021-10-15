@@ -10,7 +10,8 @@ get_explicatives_matrix(
   names = explicatives,
   complete_names = TRUE,
   one_lines = TRUE,
-  make.names = TRUE
+  make.names = TRUE,
+  limit_factor = 5
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ get_explicatives_matrix(
 \item{one_lines}{vector of boolean : whether to display one or two lines for 2 levels factors}
 
 \item{make.names}{if names should be changed}
+
+\item{limit_factor}{numeric : number of levels to coerce numerical variable to factors}
 }
 \value{
 

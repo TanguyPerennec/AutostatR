@@ -4,7 +4,7 @@
 \alias{checkforfactor}
 \title{Checking factors}
 \usage{
-checkforfactor(DF, vars = colnames(DF), confirmation = TRUE, verbose = TRUE)
+checkforfactor(DF, vars = colnames(DF), verbose = TRUE)
 }
 \arguments{
 \item{DF}{dataframe : the dataframe to clean}
