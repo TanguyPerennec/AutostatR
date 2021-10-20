@@ -17,3 +17,14 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(AutostatR)
 ```
+
+
+# Dataviz options
+
+## Palettes
+
+Palettes are from *Few, S. (2012) Show Me the Numbers: Designing Tables and Graphs to Enlighten. 2nd edition.*
+https://www.perceptualedge.com/articles/visual_business_intelligence/rules_for_using_color.pdf
+```{r}
+makepalette(show = T)
+```
