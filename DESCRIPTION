@@ -16,7 +16,8 @@ Imports:
     xlsx,
     survival,
     graphics, 
-    ggthemes
+    ggthemes,
+    RColorBrewer
 RoxygenNote: 7.1.1
 Suggests: 
     rmarkdown,
