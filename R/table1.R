@@ -202,7 +202,6 @@ table1 <- function(DF,
    lignes <- pblapply(as.data.frame(t(explicatives_matrix),row.names = colnames(explicatives_matrix)), function(X){
       varname <- as.character(X[1])
       var <- DF_without_y_and_all[,varname]
-      print(varname)
       ligne1 <- as.character(X[2])
       sign <- NULL # store a note if a special test is performed (fischer, Wilcoxon...)
       if (by_line) {

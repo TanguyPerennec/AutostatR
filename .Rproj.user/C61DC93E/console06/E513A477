@@ -432,3 +432,9 @@ Modifications qui ne seront pas validées :
 
 aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -m "comment diagram to avoid error"[1@a
+[main 38478a6] comment diagram to avoid error
+ 7 files changed, 163 insertions(+), 150 deletions(-)
+ rewrite .Rproj.user/C61DC93E/console06/INDEX001 (85%)
+ delete mode 100644 .Rproj.user/C61DC93E/sources/s-A5FC16CA/lock_file
+ rewrite R/dataviz.R (73%)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "supress print in table1"
