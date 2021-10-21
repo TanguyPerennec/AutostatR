@@ -5,16 +5,20 @@
 \title{Palette}
 \usage{
 palette(
-  palette = c("few", "RdBu"),
+  pal = c("few", "RdBu"),
   n = 8,
   type = c("Medium", "Light", "Dark"),
   show = FALSE
 )
 }
 \arguments{
-\item{palette}{}
+\item{pal}{(character) : name of the palette}
 
-\item{show}{}
+\item{n}{(numeric) : number of colors to display}
+
+\item{type}{(character) : for few palette, Medium, Light or Dark}
+
+\item{show}{(logical) : wether to show the palette}
 }
 \value{
 

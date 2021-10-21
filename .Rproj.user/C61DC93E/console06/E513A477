@@ -416,4 +416,19 @@ error: Vos modifications locales aux fichiers suivants seraient écrasées par l
 	.Rproj.user/C61DC93E/console06/E513A477
 Veuillez valider ou remiser vos modifications avant de basculer de branche.
 Abandon
-]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ 
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ errord er[K[K[K[K[K[K[K[K[Kgit commit -m "comment diagram to avoid error"
+Sur la branche main
+Votre branche est à jour avec 'origin/main'.
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add/rm <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/INDEX001[m
+	[31msupprimé :        .Rproj.user/C61DC93E/sources/s-A5FC16CA/lock_file[m
+	[31mmodifié :         DESCRIPTION[m
+	[31mmodifié :         R/dataviz.R[m
+	[31mmodifié :         man/palette.Rd[m
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -m "comment diagram to avoid error"[1@a

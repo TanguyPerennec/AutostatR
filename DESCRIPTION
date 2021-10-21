@@ -17,10 +17,7 @@ Imports:
     survival,
     graphics, 
     ggthemes,
-    RColorBrewer,
-    DiagrammeR,
-    DiagrammeRsvg,
-    rsvg
+    RColorBrewer
 RoxygenNote: 7.1.1
 Suggests: 
     rmarkdown,
