@@ -2,9 +2,10 @@
 ## Utils function
 roundp <- function(x,n){
    x <- round(x,n)
+   if (!is.na(x)){
    if(x == 0){
       x <- paste0("< 0.",strrep(0,n-1),"1")
-   }
+   }}
    return(x)
 }
 
@@ -119,6 +120,11 @@ get_explicatives_matrix <- function(explicatives,
 
 
    if (!is.null(DF)) {
+     
+     if (any(!explicatives %in% colnames(DF))){
+       stop(paste0(explicatives[!explicatives %in% colnames(DF)]," is not par of DF columns"))
+     }
+     
       explicatives_matrix$factor <- sapply(DF[, explicatives],
                                            function(x) {
                                               if (is.numeric(x)) {

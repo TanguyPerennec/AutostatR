@@ -438,3 +438,53 @@ aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "
  delete mode 100644 .Rproj.user/C61DC93E/sources/s-A5FC16CA/lock_file
  rewrite R/dataviz.R (73%)
 ]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git commit -am "supress print in table1"
+[main 0b17289] supress print in table1
+ 3 files changed, 7 insertions(+), 2 deletions(-)
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ cd ~/home/tanguy/R/HassK/HassK01/Rout/
+bash: cd: /home/tanguy/home/tanguy/R/HassK/HassK01/Rout/: Aucun fichier ou dossier de ce type
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ cd ~/home/tanguy/R/HassK/HassK01/Rout/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K/
+.anaconda/           .cinnamon/           .elementary/         Images/              .mozilla/            R/                   .thunderbird/        .zotero/
+anaconda3/           .conda/              .gnupg/              isos-linux/          .mplayer/            .rstudio-desktop/    .tuxtype/            Zotero/
+Bureau/              .config/             .gphoto/             .linuxmint/          Musique/             .ssh/                .var/                Zotero_linux-x86_64/
+.cache/              .continuum/          .hypnotix/           .local/              .pki/                Téléchargements/     Vidéos/              
+.cert/               Documents/           .icons/              Modèles/             Public/              .themes/             .zoom/               
+(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ cd ~/
+.anaconda/           .cinnamon/           .elementary/         Images/              .mozilla/            R/                   .thunderbird/        .zotero/
+anaconda3/           .conda/              .gnupg/              isos-linux/          .mplayer/            .rstudio-desktop/    .tuxtype/            Zotero/
+Bureau/              .config/             .gphoto/             .linuxmint/          Musique/             .ssh/                .var/                Zotero_linux-x86_64/
+.cache/              .continuum/          .hypnotix/           .local/              .pki/                Téléchargements/     Vidéos/              
+.cert/               Documents/           .icons/              Modèles/             Public/              .themes/             .zoom/               
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git status
+Sur la branche main
+Votre branche est en avance sur 'origin/main' de 2 commits.
+  (utilisez "git push" pour publier vos commits locaux)
+
+Modifications qui seront validées :
+  (utilisez "git restore --staged <fichier>..." pour désindexer)
+	[32mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[32mmodifié :         .Rproj.user/C61DC93E/console06/E513A477.env[m
+	[32mmodifié :         .Rproj.user/C61DC93E/console06/INDEX001[m
+	[32mmodifié :         DESCRIPTION[m
+	[32mmodifié :         NAMESPACE[m
+	[32mmodifié :         R/dataprep.R[m
+	[32mmodifié :         R/dataviz.R[m
+	[32mmodifié :         R/reglog.R[m
+	[32mmodifié :         R/table1.R[m
+	[32msupprimé :        pb.txt[m
+
+Modifications qui ne seront pas validées :
+  (utilisez "git add/rm <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git restore <fichier>..." pour annuler les modifications dans le répertoire de travail)
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/E513A477[m
+	[31mmodifié :         .Rproj.user/C61DC93E/console06/INDEX001[m
+	[31mmodifié :         R/table1.R[m
+	[31mmodifié :         R/utils.R[m
+	[31msupprimé :        man/palette.Rd[m
+	[31mmodifié :         vignettes/dataviz.Rmd[m
+
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+	[31mman/make_palette.Rd[m
+	[31mman/sankeyplot.Rd[m
+
+]0;/home/tanguy/R/AutostatR(base) ]0;tanguy@tanguy-MacBookAir: ~/R/AutostatR[01;32mtanguy@tanguy-MacBookAir[00m:[01;34m~/R/AutostatR[00m$ git add .

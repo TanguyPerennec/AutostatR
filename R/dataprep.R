@@ -596,7 +596,13 @@ data_prep_complete <- function(DF,
    for (exp in explicatives_matrix$explicatives){
      exp <- explicatives_matrix[exp,]
      if (as.logical(exp[5])){
-       relevel(as.factor(as.character(DF[,rownames(exp)])),as.character(exp[6])) -> DF[,rownames(exp)]
+       
+       tryCatch(relevel(as.factor(as.character(DF[,rownames(exp)])),as.character(exp[6])) -> DF[,rownames(exp)],
+                error = function(e)
+                  stop(paste0("You tried to assign < ", as.character(exp[6])," > for the variable  <",rownames(exp)," > but it doesn't exists"))) -> var
+       
+       
+       
      }
    }
    

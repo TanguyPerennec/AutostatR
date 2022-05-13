@@ -15,9 +15,11 @@ Imports:
     stringr,
     xlsx,
     survival,
-    graphics, 
+    graphics,
     ggthemes,
-    RColorBrewer
+    RColorBrewer,
+    networkD3,
+    dplyr
 RoxygenNote: 7.1.1
 Suggests: 
     rmarkdown,

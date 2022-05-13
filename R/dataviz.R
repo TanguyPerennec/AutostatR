@@ -11,7 +11,7 @@
 #' @import RColorBrewer
 #'
 #' @examples
-palette <- function(pal = c("few","RdBu"),
+make_palette <- function(pal = c("few","RdBu"),
                     n=8,
                     type = c("Medium","Light","Dark"),
                     show=FALSE){
@@ -53,83 +53,60 @@ palette <- function(pal = c("few","RdBu"),
 
 
 
+#' Sankey plot
+#' @param matrix : a dataframe with source, target and value columns
+#' @param labels 
+#' @param titles 
+#' @param values 
+#'
+#' @import networkD3
+#' @import dplyr
+#' @return
+#' @export
 #' 
-#' #' Title
-#' #'
-#' #' @param groups 
-#' #' @param labels 
-#' #' @param titles 
-#' #' @param values 
-#' #'
-#' #' @return
-#' #' @export
-#' #'
-#' #' @examples
-#' initiate_flowchart <- function(groups = 1,
-#'                                labels = c('Base protéomique','','Randomised',rep('Allocated to\nintervention',groups),rep('Lost to follow-up',groups),rep('Analysed',groups)),
-#'                                titles = c('Base initiale', 'Allocation', 'Follow-Up', 'Analysis'),
-#'                                values){
-#'   
-#'     # https://scriptsandstatistics.wordpress.com/2017/12/22/how-to-draw-a-consort-flow-diagram-using-r-and-graphviz/
-#'     paste1 <- function(x, y){
-#'       paste0(x, ' (n=', y, ')')
-#'     }
-#'     
-#'     invisibles <- 4
-#'     labels <- paste1(labels, values)
-#'     LABS <- c(titles, labels, rep("", invisibles))
-#'     
-#'     ndf <-
-#'       create_node_df(
-#'         n = length(LABS),
-#'         label = c(titles, labels, rep("", invisibles)),
-#'         style = c(rep("solid", 13), rep('invis', invisibles)),
-#'         shape = c(rep("plaintext", 4), 
-#'                   rep("box", 9),
-#'                   rep("point", invisibles)),
-#'         width = c(rep(2, 4), rep(2.5, 9), rep(0.001, invisibles)),
-#'         hight = c(rep(0.5, 13), rep(0.001, invisibles)),
-#'         fontsize = c(rep(14, 4), rep(10, 17)),
-#'         fontname = c(rep('Arial Rounded MT Bold', 4), rep('Courier New', 17)),
-#'         penwidth = 2.0,
-#'         fixedsize = "true")
-#'     
-#'     edf <-
-#'       create_edge_df(
-#'         arrowhead = c(rep('none', 3), rep("vee", 3), rep('none', 2), "vee", rep('none', 6),
-#'                       rep("vee", 3), rep("none", 3), "vee", rep("none", 10)),
-#'         color = c(rep('#00000000', 3), rep('black', 6), rep('#00000000', 6),
-#'                   rep('black', 3), rep('#00000000', 3), rep('black', 1),
-#'                   rep('#00000000', 2), rep('black', 2), 
-#'                   rep('#00000000', 6)),
-#'         constraint = c(rep("true", 18), rep('false', 14)),
-#'         from = c(1, 19, 20, 16, 8, 10, # column 1
-#'                  5, 14, 7, 15, 2, 3, # column 2
-#'                  18, 6, 21, 17, 9, 11, # column 3
-#'                  1, 5, # row 1
-#'                  19, 14, # row 2
-#'                  20, 7, # row 3
-#'                  16, 15, # row 4
-#'                  8, 2, # row 5
-#'                  10, 3, # row 6
-#'                  12, 4), # row 7
-#'         to = c(19, 20, 16, 8, 10, 12, # column 1
-#'                14, 7, 15, 2, 3, 4, # column 2
-#'                6, 21, 17, 9, 11, 13, # column 3
-#'                5, 18, # row 1
-#'                14, 6, # row 2
-#'                7, 21, # row 3
-#'                15, 17, # row 4
-#'                2, 9, # row 5
-#'                3, 11, # row 6
-#'                4, 13)) # row 7
-#'     
-#'     g <- create_graph(ndf, 
-#'                       edf,
-#'                       attr_theme = NULL)
-#'     
-#'     # Plotting ----------------------------------------------------------------
-#'     render_graph(g)
-#'   
-#' }
+#' @examples
+sankeyplot <- function(links,colors=F){
+# Exemple
+# links <- data.frame(
+#   source=c("group_A","group_A", "group_B", "group_C", "group_C", "group_E"), 
+#   target=c("group_C","group_D", "group_E", "group_F", "group_G", "group_H"), 
+#   value=c(2,3, 2, 3, 1, 3)
+# )
 
+# From these flows we need to create a node data frame: it lists every entities involved in the flow
+nodes <- data.frame(
+  name=unique(c(as.character(links$source), 
+         as.character(links$target)))
+)
+
+# With networkD3, connection must be provided using id, not using real name like in the links dataframe.. So we need to reformat it.
+links$IDsource <- match(links$source, nodes$name)-1 
+links$IDtarget <- match(links$target, nodes$name)-1
+
+if (!is.logical(colors)){
+domains <- c(levels(links[,"source"]),levels(links[,"target"]))
+paste(domains,collapse = '","') -> domains
+paste(colors,collapse = '","')-> colors
+my_color <- paste('d3.scaleOrdinal() .domain(["',domains,'"]) .range(["',colors,'"])')
+
+p <- networkD3::sankeyNetwork(Links = links, Nodes = nodes,
+                              Source = "IDsource", Target = "IDtarget",
+                              Value = "value", NodeID = "name", colourScale=my_color,
+                              sinksRight=FALSE)
+} else{
+  p <- networkD3::sankeyNetwork(Links = links, Nodes = nodes,
+                                Source = "IDsource", Target = "IDtarget",
+                                Value = "value", NodeID = "name",
+                                sinksRight=FALSE)
+}
+
+# prepare color scale: I give one specific color for each node.
+my_color <- 'd3.scaleOrdinal() .domain(["HER2 0", "HER2 low","HER2 0 M+","HER2 low M+"]) .range(["#69b3a2", "steelblue","#69b3a2", "steelblue"])'
+
+# Make the Network. I call my colour scale with the colourScale argument
+p <- sankeyNetwork(Links = links, Nodes = nodes, Source = "IDsource", Target = "IDtarget", 
+                   Value = "value", NodeID = "name")
+p
+return(p)
+
+}

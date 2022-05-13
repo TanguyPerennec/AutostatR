@@ -45,6 +45,7 @@ reglog <- function(DF,
             title = TRUE)
    {
 
+  library(MASS)
    # Y
    if (missing(y))
       y <- colnames(DF)[1]
@@ -394,7 +395,7 @@ if (FALSE){
          rslt <- valign(rslt, valign = "bottom", part = "footer")
          }
 
-         if (title) {
+         if (title & FALSE) {
             rslt <- add_header_lines(rslt,paste0("Logistic regression for ", colnames_prep(y,type = "presentation")))
          }
 

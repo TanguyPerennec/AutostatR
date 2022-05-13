@@ -26,7 +26,7 @@ library(AutostatR)
 Palettes are from *Few, S. (2012) Show Me the Numbers: Designing Tables and Graphs to Enlighten. 2nd edition.*
 https://www.perceptualedge.com/articles/visual_business_intelligence/rules_for_using_color.pdf
 ```{r}
-palette("RdBu",show = T)
+make_palette("RdBu",show = T)
 ```
 
 

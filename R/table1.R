@@ -454,7 +454,12 @@ table1 <- function(DF,
 
          #### Transformation into factor and mutation if needed
          var[var == "NA"] <- NA
-         relevel(as.factor(as.character(var)),as.character(X[6])) -> var
+         
+         tryCatch(relevel(as.factor(as.character(var)),as.character(X[6])),
+                  error = function(e)
+                    stop(paste0("You tried to assign < ", as.character(X[6])," > for the variable  <",varname," > but it doesn't exists"))) -> var
+
+         
 
 
          # if there is more than 'mutation' modalities, the last modalities are grouped in 'others' modality
@@ -621,9 +626,11 @@ table1 <- function(DF,
 
             } else { ## Variable with more than 2 levels #############################
 
+
                ligne <- ifelse(as.logical(X[3]),
-                               paste0(X[2], " - no. (%)"),
-                               X[2])
+                               paste0(as.character(X[2]), " - no. (%)"),
+                              as.character(X[2]))[[1]]
+
 
                if (available_data)
                   ligne <- c(ligne, n_available)
@@ -637,6 +644,7 @@ table1 <- function(DF,
                                              paste0(clig, sign)))
                   }
 
+                  
 
                # other lines
                lignes_tot <- matrix(ligne, ncol = ncol(tabf))
