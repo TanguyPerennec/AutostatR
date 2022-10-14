@@ -785,7 +785,10 @@ table1 <- function(DF,
          align(j = 2:nb_colums, align = 'center', part = "header") -> rslt
    }
    
-   version <- paste0("Statistical analysis have been performed with R (",version$version.string,"), with the package AutostatR version 1.0.1")
+   version <- paste0("Statistical analysis have been performed with R (",
+                     version$version.string,
+                     "), with the package AutostatR version ",
+                     packageVersion('AutostatR'))
 
    return(list("version" = version,"methods" = text_footer,"table" = rslt))
 }
