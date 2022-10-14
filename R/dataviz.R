@@ -108,5 +108,4 @@ p <- sankeyNetwork(Links = links, Nodes = nodes, Source = "IDsource", Target = "
                    Value = "value", NodeID = "name")
 p
 return(p)
-
 }

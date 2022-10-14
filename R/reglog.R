@@ -13,9 +13,9 @@
 #' @param round num : number of digits to display in the final table.
 #' @param keep all the variables that should be kept in the multivariate results
 #' @param exit specify where do you want to display the results : console (the default), excel (in a results.xlsx file), html (using kable)
-#' @param dataprep 
-#' @param rowstimevariable 
-#' @param stability 
+#' @param dataprep logical : whether performing datapreparation
+#' @param rowstimevariable : number of row per variable
+#' @param stability logical : wheter to perform the stability analysis
 #' @param equation logical : to show the equation of the regression function
 #' @param title 
 #'
