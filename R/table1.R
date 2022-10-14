@@ -1,8 +1,9 @@
 #' Table 1
 #'
-#' @param DF dataframe : datas to be analysed
-#' @param y character : column that will separate the dataframe
-#' @param explicatives : columns of the dataframe to be analysed
+#' @param DF dataframe : data
+#' @param explicatives (optionnal) : columns of the dataframe to be analysed 
+#' all the columns if let empty
+#' @param y character (optionnal) : column in DF to separate the table
 #' @param round (optionnal) : number of digits to be display in the results. If a vector is provided, digits stands for p-value then variables.
 #' @param overall booleen (optionnal) : TRUE if an "overall" column is wanted
 #' @param mutation numeric : number of modalities to display for one variable. If there is more than "mutation" categories, the modalities after this threeshold are wrapped into an "others" categorie.
@@ -20,7 +21,7 @@
 #' @import pbapply
 #' @import stats
 table1 <- function(DF,
-                   explicatives,
+                   explicatives = columns(y),
                    y = NULL,
                    overall = TRUE,
                    tests = "classic",
