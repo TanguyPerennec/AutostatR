@@ -121,8 +121,11 @@ get_explicatives_matrix <- function(explicatives,
 
    if (!is.null(DF)) {
      
+     DF <- as.data.frame(DF)
+     
      if (any(!explicatives %in% colnames(DF))){
-       stop(paste0(explicatives[!explicatives %in% colnames(DF)]," is not par of DF columns"))
+       stop(paste0(explicatives[!explicatives %in% colnames(DF)],
+                   " is not par of DF columns"))
      }
      
       explicatives_matrix$factor <- sapply(DF[, explicatives],
@@ -135,14 +138,12 @@ get_explicatives_matrix <- function(explicatives,
                                            })
 
       explicatives_matrix$levels <- explicatives_matrix$labels <-
-         sapply(explicatives, function(x)
-            if (as.logical(explicatives_matrix[x, "factor"])){
-              levels(as.factor(DF[,x])) -> levels
-              return(levels[1])
+        sapply(explicatives,function(x)
+            if (as.logical(explicatives_matrix[x,"factor"])){
+              print(x)
+              levels(as.factor(as.character(DF[,x])))[1]
             }
-            else
-               return(NA))
-
+            else{NA})
 
       if (length(complete_names) == 1) {
          explicatives_matrix[, 3] <-
