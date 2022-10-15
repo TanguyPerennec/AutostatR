@@ -1,7 +1,9 @@
 #' Table 1
 #'
+#' @description Perform a table 1 like descriptive table
+#' 
 #' @param DF dataframe : data
-#' @param explicatives (optionnal) : columns of the dataframe to be analysed 
+#' @param explicatives : (optionnal) columns of the dataframe to be analysed 
 #' all the columns if let empty
 #' @param y character (optionnal) : column in DF to separate the table
 #' @param round (optionnal) : number of digits to be display in the results. If a vector is provided, digits stands for p-value then variables.
@@ -33,7 +35,7 @@ table1 <- function(DF,
                    num_function = "auto",
                    available_data = TRUE,
                    by_line = FALSE,
-                   complete=F)
+                   complete = F)
 {
 
 
@@ -200,21 +202,19 @@ table1 <- function(DF,
    ########################################################
    ###        Loop for each characteristics (var)       ###
    ########################################################
-   lignes <- pblapply(as.data.frame(t(explicatives_matrix),row.names = colnames(explicatives_matrix)), function(X){
-      varname <- as.character(X[1])
-      var <- DF_without_y_and_all[,varname]
-      ligne1 <- as.character(X[2])
-      sign <- NULL # store a note if a special test is performed (fischer, Wilcoxon...)
-      if (by_line) {
+
+   table1_one_var <- function(X) {
+       varname <- as.character(X[1])
+       var <- DF_without_y_and_all[,varname]
+       n_available <- sum(!is.na(var))
+       ligne1 <- as.character(X[2])
+       sign <- NULL # will store a note depending on test performed (fischer, Wilcoxon...)
+       if (by_line) {
          expression = c(varname, "y_b", adjusted)
-      } else {
-         expression = c("y_b", varname, adjusted)
-      }
-      if (available_data)
-         n_available <- sum(!is.na(var))
+       } else {
+          expression = c("y_b", varname, adjusted)
+       }
       #####################################
-
-
 
 
 
@@ -222,7 +222,7 @@ table1 <- function(DF,
       #--------------------------------------------------------------------------------------------------------------------#
       #--  if numeric  ----------------------------------------------------------------------------------------------------#
       #--------------------------------------------------------------------------------------------------------------------#
-      if (!as.logical(X[5])) {
+      if (! as.logical(X[5])) {
 
          var <- as.numeric(var)
          if (available_data)
@@ -232,9 +232,14 @@ table1 <- function(DF,
          if (length(num_function) < 3) {
             ligne2 <- ligne3 <- NULL
          } else {
-            median_bis <- ifelse("quartile" %in% num_function, "[Q1-Q3]","[min - max]")
-            ligne2 <- ifelse(exit == "html", "\t \t Mean (SD)", "      Mean (SD)")
-            ligne3 <- ifelse(exit == "html",paste0("\t \t Median ", median_bis),paste0("      Median ", median_bis))
+            median_bis <- ifelse("quartile" %in% num_function,
+                                 "[Q1-Q3]","[min - max]")
+            ligne2 <- ifelse(exit == "html",
+                             "\t \t Mean (SD)",
+                             "      Mean (SD)")
+            ligne3 <- ifelse(exit == "html",
+                             paste0("\t \t Median ", median_bis),
+                             paste0("      Median ", median_bis))
          }
 
 
@@ -429,7 +434,7 @@ table1 <- function(DF,
                   p <- roundp(p, round_p)
                   ligne1 <- c(ligne1, p)
                }
-            } else{ ligne1 <- c(ligne1, " ")}
+            }
 
          ligne <- ligne1
          if (!is.null(ligne2))
@@ -458,7 +463,9 @@ table1 <- function(DF,
          
          tryCatch(relevel(as.factor(as.character(var)),as.character(X[6])),
                   error = function(e)
-                    stop(paste0("You tried to assign < ", as.character(X[6])," > for the variable  <",varname," > but it doesn't exists"))) -> var
+                    stop(paste0("You tried to assign < ", as.character(X[6]),
+                                " > for the variable  <",varname,
+                                " > but it doesn't exists"))) -> var
 
          
 
@@ -592,28 +599,23 @@ table1 <- function(DF,
                   }
                }
 
-               if (available_data) {
-                  if (as.logical(X[3])){
-                     ligne <- c(paste0(ligne1, " (", levels(var)[1], ") - no. (%)"), n_available)
-                  } else {
-                     ligne <- c(ligne1, n_available)
-                  }
-               } else{
-                  if (as.logical(X[3])) {
-                     ligne <- c(paste0(ligne1, " (", levels(var)[1], ") - no. (%)"))
-                  } else {
-                     ligne <- c(ligne1)
-                  }
-               }
+                 ligne1 <- paste0(ligne1,
+                                 ifelse(as.logical(X[3]),
+                                        paste0(" (", levels(var)[1], ") - no. (%)"),
+                                        ""))
+                 
+                 if (available_data)
+                   ligne1 <- c(ligne1, n_available)
+
 
                if (overall) {
                   overall_count <- addmargins(table(DF[, varname], useNA = "no"))[levels(var)[1]]
                   percent_overall <- round(100 * overall_count / n_available, round)
-                  ligne <- c(ligne, paste0(overall_count, "  (", percent_overall, "%)"))
+                  ligne1 <- c(ligne1, paste0(overall_count, "  (", percent_overall, "%)"))
                }
 
                if (!is.null(y)) {
-                  ligne <- c(ligne,
+                  ligne1 <- c(ligne1,
                              sapply(1:levels_y, function(j) {
                                 paste0(tb[j, 1],
                                        " (",
@@ -623,7 +625,9 @@ table1 <- function(DF,
                }
 
                if (tests)
-                  ligne <- c(ligne, paste0(clig, sign))
+                  ligne1 <- c(ligne1, paste0(clig, sign))
+                 ligne1 -> ligne
+
 
             } else { ## Variable with more than 2 levels #############################
 
@@ -737,8 +741,14 @@ table1 <- function(DF,
          }
       }
       return(ligne)
-   })
+   }
 
+   
+   #### LOOP ###
+  t_explicative_matix <- as.data.frame( t(explicatives_matrix))
+  lignes <- pblapply(t_explicative_matix, table1_one_var)
+
+  
    as.data.frame(do.call(rbind, lignes),stringsAsFactors = F) -> rslt
    row.names(rslt) <- NULL
    rslt <- rbind(tabf[2,],rslt)
@@ -758,7 +768,8 @@ table1 <- function(DF,
       ifelse("mean" %in% num_function,
              "mean and standard deviation ",
              ifelse('auto' %in% num_function,
-                    "mean and standard deviation for numerical data if they were normaly distributed, median and interquartile range otherwise.",
+                    "mean and standard deviation for numerical data if they were
+                    normaly distributed, median and interquartile range otherwise.",
                     ifelse('range' %in% num_function,
                            "median and range for numerical data.",
                            "median and interquartile range for numerical data."
@@ -768,8 +779,12 @@ table1 <- function(DF,
                 "",
                 ifelse(
                    any("paired" %in% method),
-                   " p-values have been obtained from paired t test for continuous variables and mac nemar test for categorical variables",
-                   " p-values have been obtained from a two-sided student test for continuous variables and from a khi-2 test for categorical variables, unless specified otherwise (a: Student test with Welch approximation, b: Fisher's exact test, c: Wilcoxon test, d: Kruskal-Wallis Rank sum test)"
+                   " p-values have been obtained from paired t test for continuous
+                   variables and mac nemar test for categorical variables",
+                   " p-values have been obtained from a two-sided student test
+                   for continuous variables and from a khi-2 test for categorical variables,
+                   unless specified otherwise (a: Student test with Welch approximation,
+                   b: Fisher's exact test, c: Wilcoxon test, d: Kruskal-Wallis Rank sum test)"
                 )
       )
    )

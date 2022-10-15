@@ -1,0 +1,45 @@
+---
+title: "Table 1"
+author: "Tanguy Perennec"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Table 1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Import library and data
+
+We are going to work with 'lung' dataset from survival
+```{r imports}
+library(AutostatR)
+library(survival)
+
+head(lung)
+
+```
+
+```{r table1}
+variables <- c("age", "sex","wt.loss")
+
+table1(lung,
+       variables)
+```
+
+```{r with_y}
+
+
+table1(lung,
+       variables,
+       y="status")
+
+```
+

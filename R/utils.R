@@ -140,7 +140,6 @@ get_explicatives_matrix <- function(explicatives,
       explicatives_matrix$levels <- explicatives_matrix$labels <-
         sapply(explicatives,function(x)
             if (as.logical(explicatives_matrix[x,"factor"])){
-              print(x)
               levels(as.factor(as.character(DF[,x])))[1]
             }
             else{NA})
