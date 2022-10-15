@@ -36,7 +36,6 @@ table1(lung,
 
 ```{r with_y}
 
-
 table1(lung,
        variables,
        y="status")

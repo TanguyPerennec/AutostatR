@@ -649,8 +649,7 @@ table1 <- function(DF,
                                              paste0(clig, sign)))
                   }
 
-                  
-
+                
                # other lines
                lignes_tot <- matrix(ligne, ncol = ncol(tabf))
                for (n in 1:length(levels(var))) {
@@ -805,5 +804,7 @@ table1 <- function(DF,
                      "), with the package AutostatR version ",
                      packageVersion('AutostatR'))
 
-   return(list("version" = version,"methods" = text_footer,"table" = rslt))
+   print(rslt)
+   
+   return(invisible(list("version" = version,"methods" = text_footer,"table" = rslt)))
 }
