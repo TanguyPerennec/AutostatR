@@ -20,9 +20,6 @@ variables_means(
 
 \item{nbre}{: number of iteration}
 }
-\value{
-
-}
 \description{
 Mean coefficents on bootstrap
 }

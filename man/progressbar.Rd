@@ -26,9 +26,6 @@ progressbar(
 
 \item{text}{(optional) text to display befor 'variable'}
 }
-\value{
-
-}
 \description{
 Progressbar
 }

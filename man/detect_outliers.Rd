@@ -13,9 +13,6 @@ detect_outliers(var, k = 3, inplace = TRUE)
 
 \item{inplace}{(boolean) : whether the variable should be returned without the outliers or not}
 }
-\value{
-
-}
 \description{
 Detect outliers
 }

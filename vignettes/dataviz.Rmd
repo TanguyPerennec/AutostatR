@@ -30,11 +30,15 @@ make_palette("RdBu",show = T)
 ```
 
 
-# Flowchart
+# Basic plots
 
 
 ```{r}
 
+library(survival)
+
+
+tphistogram(lung,x="age",y="sex")
 ```
 
 

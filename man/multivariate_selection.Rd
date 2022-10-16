@@ -41,9 +41,6 @@ multivariate_selection(
 
 \item{delta}{num : threeshold of difference in BIC or AIC to consider a model as more informative}
 }
-\value{
-
-}
 \description{
 Variable selection for a multivariate logistic regression model
 }

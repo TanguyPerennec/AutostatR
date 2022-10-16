@@ -22,9 +22,6 @@ stability_proportion(
 
 \item{criterias}{vector : criterias to test}
 }
-\value{
-
-}
 \description{
 Inclusion proportion by bootstrap
 }

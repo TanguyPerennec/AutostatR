@@ -11,9 +11,6 @@ tobinary(col, verbose = TRUE)
 
 \item{verbose}{: TRUE to display some information in the console}
 }
-\value{
-
-}
 \description{
 Coerce a column into a binary column
 }

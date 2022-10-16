@@ -11,9 +11,6 @@ colnames_prep(object, type = "make.names")
 
 \item{type}{(character) : use 'makes.names' to create new names in correct format for R function or 'presentation' to put it in correct way to definitive presentation}
 }
-\value{
-
-}
 \description{
 Colnames preparation
 }

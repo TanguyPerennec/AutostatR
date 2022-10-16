@@ -31,9 +31,6 @@ NA_rm_for_glm(
 
 \item{imputed_variables}{: variables to be imputed if imputed method is selected in 'method_NA'.}
 }
-\value{
-
-}
 \description{
 Removing of all NAs and change the dataframe if too many rows are deleted
 }

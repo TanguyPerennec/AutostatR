@@ -15,9 +15,6 @@ logit(DF, y = colnames(DF)[1], auto = FALSE, verbose = NULL)
 
 \item{verbose}{: wheter explaination should be displayed in the console}
 }
-\value{
-
-}
 \description{
 Function Logit
 }

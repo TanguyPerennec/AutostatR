@@ -1,6 +1,6 @@
 Package: AutostatR
 Title: Perform biostatistics
-Version: 2.0
+Version: 2.1.0
 Authors@R: person("Tanguy", "Perennec", email = "perennec.tanguy@gmail.com",
                   role = c("aut", "cre"))
 Description: Perform biostatistics with R console with table 1, multivariate regressions and survival models.
@@ -20,7 +20,8 @@ Imports:
     RColorBrewer,
     networkD3,
     dplyr,
-    cli
+    cli,
+    ggpubr
 RoxygenNote: 7.2.1
 Suggests: 
     rmarkdown,

@@ -29,9 +29,6 @@ get_explicatives_matrix(
 
 \item{limit_factor}{numeric : number of levels to coerce numerical variable to factors}
 }
-\value{
-
-}
 \description{
 Explicatives matrix
 }

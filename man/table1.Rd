@@ -6,7 +6,7 @@
 \usage{
 table1(
   DF,
-  explicatives,
+  explicatives = columns(y),
   y = NULL,
   overall = TRUE,
   tests = "classic",
@@ -22,11 +22,12 @@ table1(
 )
 }
 \arguments{
-\item{DF}{dataframe : datas to be analysed}
+\item{DF}{dataframe : data}
 
-\item{explicatives}{: columns of the dataframe to be analysed}
+\item{explicatives}{: (optionnal) columns of the dataframe to be analysed 
+all the columns if let empty}
 
-\item{y}{character : column that will separate the dataframe}
+\item{y}{character (optionnal) : column in DF to separate the table}
 
 \item{overall}{booleen (optionnal) : TRUE if an "overall" column is wanted}
 
@@ -46,5 +47,5 @@ table1(
 dataframe, excel file or html table depending on the exit parameter
 }
 \description{
-Table 1
+Perform a table 1 like descriptive table
 }

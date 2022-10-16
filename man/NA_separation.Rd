@@ -11,9 +11,6 @@ NA_separation(DF, verbose = T)
 
 \item{verbose}{logical : TRUE to display some information in the console}
 }
-\value{
-
-}
 \description{
 Looking for complete NA separation
 }

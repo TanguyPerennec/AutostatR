@@ -23,21 +23,21 @@ make_palette <- function(pal = c("few","RdBu"),
   if (is.vector(pal) & length(pal) > 1)
     pal = pal[2]
   
+  if (n < 3){
+    ni <- n
+    n <- 3
+  }
+  
   if (pal == "few"){
-    pal = few_pal(type)
-    if (show){
-      scales::show_col(pal(n))
-    }
+    palette = few_pal(type)(n)
+    if (show)
+      scales::show_col(palette)
   } else{
-    if (n < 3){
-      ni <- n
-      n <- 3
-    }
+    
 
     palette = RColorBrewer::brewer.pal(n = n, name = pal)
-    if (show){
+    if (show)
       RColorBrewer::display.brewer.pal(n = n, name = pal)
-    }
   }
   
   if (ni == 1){
@@ -50,6 +50,8 @@ make_palette <- function(pal = c("few","RdBu"),
 
   return(palette)
 }
+
+
 
 
 
@@ -108,4 +110,47 @@ p <- sankeyNetwork(Links = links, Nodes = nodes, Source = "IDsource", Target = "
                    Value = "value", NodeID = "name")
 p
 return(p)
+}
+
+
+
+
+#### MODIFYING GGPUBR
+
+
+#' Histogram
+#'
+#' @param data : dataframe
+#' @param x : column use to plot the histogram
+#' @param y : column that can be used to separate the data
+#' @param colors : character or vector of colors
+#' @param position : identity, stack or dodge
+#' @param ... : other arguments to be passed through gghistogram
+#'
+#' @import ggpubr
+#' @return
+#' @export
+#'
+#' @examples
+tphistogram <- function(data, x, y, colors, position="stack",...) {
+  
+  as.data.frame(data) -> data
+
+  
+  if(missing(y)){
+    if(missing(colors)){
+      colors = make_palette(type = "Medium",pal = "few")[1]
+      gghistogram(data, x, color = colors, fill = colors,...) -> p
+    } else {
+      gghistogram(data,x,...) -> p
+    }
+  } else{
+    data[,y] <- as.factor(data[,y])
+    n <- length(levels(data[,y]))
+    colors <- make_palette(n = n,type = "Dark",pal = "few")
+    gghistogram(data, x, palette = colors, color = y, fill = y,
+                 position=position,...) -> p
+  }
+  
+  return(p)
 }

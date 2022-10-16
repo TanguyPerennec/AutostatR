@@ -15,9 +15,6 @@ sankeyplot(links, colors = F)
 
 \item{values}{}
 }
-\value{
-
-}
 \description{
 Sankey plot
 }

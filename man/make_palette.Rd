@@ -20,9 +20,6 @@ make_palette(
 
 \item{show}{(logical) : wether to show the palette}
 }
-\value{
-
-}
 \description{
 Palette
 }

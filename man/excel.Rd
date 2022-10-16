@@ -13,9 +13,6 @@ excel(table, title_sheet = NULL, file_name = "results.xlsx")
 
 \item{file_name}{character : name of the file name}
 }
-\value{
-
-}
 \description{
 xlsx
 }

@@ -11,9 +11,6 @@ checkforfactor(DF, vars = colnames(DF), verbose = TRUE)
 
 \item{verbose}{(optional) logical : TRUE will display some informations in the console}
 }
-\value{
-
-}
 \description{
 Checking factors
 }

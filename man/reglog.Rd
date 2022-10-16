@@ -31,7 +31,7 @@ Takes all columns but y from the dataframe if kept empty.}
 
 \item{alpha}{num : significance threeshold used to delete non-significant variables in the multivariate model.}
 
-\item{dataprep}{}
+\item{dataprep}{logical : whether performing datapreparation}
 
 \item{verbose}{logical : if TRUE, explainations are displayed in the console while running the function.}
 
@@ -39,13 +39,13 @@ Takes all columns but y from the dataframe if kept empty.}
 
 \item{round}{num : number of digits to display in the final table.}
 
-\item{rowstimevariable}{}
+\item{rowstimevariable}{: number of row per variable}
 
 \item{keep}{all the variables that should be kept in the multivariate results}
 
 \item{exit}{specify where do you want to display the results : console (the default), excel (in a results.xlsx file), html (using kable)}
 
-\item{stability}{}
+\item{stability}{logical : wheter to perform the stability analysis}
 
 \item{equation}{logical : to show the equation of the regression function}
 
