@@ -127,9 +127,16 @@ get_explicatives_matrix <- function(explicatives,
        stop(paste0(explicatives[!explicatives %in% colnames(DF)],
                    " is not par of DF columns"))
      }
+     print(explicatives)
+     print(explicatives_matrix)
      
-      explicatives_matrix$factor <- sapply(DF[, explicatives], function(x) {
-                                              ! is.numeric(x) || length(levels(as.factor(x))) < limit_factor
+      explicatives_matrix$factor <- apply(DF[, explicatives], 2, function(x) {
+                                              num <- sum(!is.na(as.numeric(x))) == sum(!is.na(x))
+                                              if (num){
+                                                length(levels(as.factor(x))) < limit_factor
+                                              } else{
+                                                TRUE
+                                              }
                                            })
 
       explicatives_matrix$levels <- explicatives_matrix$labels <-
@@ -153,7 +160,5 @@ get_explicatives_matrix <- function(explicatives,
    }
    explicatives_matrix$names <- as.character(explicatives_matrix$names)
    return(explicatives_matrix)
-
-
 }
 

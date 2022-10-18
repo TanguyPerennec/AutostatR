@@ -70,7 +70,8 @@ reglog <- function(DF,
       for (expl_out_DF in explicatives_out_DF[-1]){
           msg_error <- paste0(msg_error, ", ", expl_out_DF)
          }
-         msg_error <- paste0(msg_error,ifelse(length(explicatives_out_DF) > 1," are "," is "), "not part of DF columns")
+         msg_error <- paste0(msg_error,ifelse(length(explicatives_out_DF) > 1," are "," is "),
+                             "not part of DF columns")
       stop(msg_error)
    }
 
@@ -181,7 +182,7 @@ reglog <- function(DF,
    i = 0
    for (var_uni in explicatives) {
       progressbar(total = length(vect_explicative)-1,i,variable = var_uni)
-      mod_uni <- glm(DF[,c(y,var_uni)], family = "binomial")
+      mod_uni <- glm(DF[, c(y,var_uni)], family = "binomial")
       vector_var = vector()
       k = 0
       if (is.numeric(DF[, var_uni])) {

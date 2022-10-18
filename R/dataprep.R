@@ -562,14 +562,16 @@ data_prep_complete <- function(DF,
    DF <- as.data.frame(DF)
    DF1 <- DF
 
-   # Caractere preparation
+   # Charactere / num preparation
    DF <- format_data(DF)
-   explicatives_matrix[,6] <- plain(explicatives_matrix[,6])
-   DF <- as.data.frame(DF)
+   explicatives_matrix[, 6] <- plain(explicatives_matrix[, 6])
+   for (expl in explicatives_matrix$explicatives){
+     if (!as.logical(explicatives_matrix[expl,5])) 
+       DF[,explicatives_matrix[expl,1]] <- as.numeric(DF[,explicatives_matrix[expl,1]])
+   }
 
    # Data prep of y
    DF[, y] <- tobinary(DF[, y])
-   DF <- as.data.frame(DF)
 
    # get rid of NAs
    DF <- NA_rm_for_glm(DF,y,keep)
@@ -583,15 +585,13 @@ data_prep_complete <- function(DF,
      if (as.logical(exp[5])){
              tryCatch(relevel(as.factor(as.character(DF[,rownames(exp)])),
                               as.character(exp[6])) -> DF[,rownames(exp)],
-                error = function(e)
-                {
+                error = function(e) {
                   print(as.character(exp[6]))
                   print(DF[,rownames(exp)])
                   stop(paste0("Ho no ! you tried to assign <", as.character(exp[6]),
                               "> for the variable  <",rownames(exp),
                               "> but it doesn't exists"))
-                }
-                  ) -> var
+                }) -> var
      }
    }
    
