@@ -128,21 +128,15 @@ get_explicatives_matrix <- function(explicatives,
                    " is not par of DF columns"))
      }
      
-      explicatives_matrix$factor <- sapply(DF[, explicatives],
-                                           function(x) {
-                                              if (is.numeric(x)) {
-                                                 length(levels(as.factor(x))) < limit_factor
-                                              } else{
-                                                 TRUE
-                                              }
+      explicatives_matrix$factor <- sapply(DF[, explicatives], function(x) {
+                                              ! is.numeric(x) || length(levels(as.factor(x))) < limit_factor
                                            })
 
       explicatives_matrix$levels <- explicatives_matrix$labels <-
         sapply(explicatives,function(x)
             if (as.logical(explicatives_matrix[x,"factor"])){
               levels(as.factor(as.character(DF[,x])))[1]
-            }
-            else{NA})
+            } else{NA})
 
       if (length(complete_names) == 1) {
          explicatives_matrix[, 3] <-

@@ -36,7 +36,7 @@ make_palette("RdBu",show = T)
 ```{r}
 
 library(survival)
-
+lung$sex <- factor(lung$sex)
 
 tphistogram(lung,x="age",y="sex")
 ```

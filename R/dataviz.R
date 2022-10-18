@@ -136,7 +136,6 @@ tphistogram <- function(data, x, y, colors, position="stack",...) {
   
   as.data.frame(data) -> data
 
-  
   if(missing(y)){
     if(missing(colors)){
       colors = make_palette(type = "Medium",pal = "few")[1]

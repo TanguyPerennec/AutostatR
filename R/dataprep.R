@@ -84,8 +84,7 @@ detect_outliers <- function(var,
 
    outliers <- list()
 
-   for (n in seq(length(var)))
-   {
+   for (n in seq(length(var))){
       if (!is.na(var[n]))
       {
          values = var[n]
@@ -180,19 +179,16 @@ tobinary <- function(col,
 #' @export
 #'
 #' @examples
-NA_separation <-
-   function(DF,
-            verbose=T)
+NA_separation <- function(DF, verbose=T)
 {
    DF <- as.data.frame(DF)
    variables = colnames(DF)
    i_p = 0
-   for (variable1 in variables)
-   {
+   for (variable1 in variables) {
       #select variables with more than n/factor NAs
-         for (variable2 in variables[variables != variable1])
-            {
-            progressbar(i = i_p,total = length(variables) * (length(variables) - 1),variable = variable1)
+         for (variable2 in variables[variables != variable1]) {
+            progressbar(i = i_p,total = length(variables) * (length(variables) - 1),
+                        variable = variable1)
             i_p = i_p + 1
             DFtest <- DF[, c(variable1, variable2)]
             nb_NA <- sum(is.na(DFtest[, 2]))
@@ -202,12 +198,9 @@ NA_separation <-
                   {
                   table(DFtest[, 1], DFtest[, 2], useNA = "always") -> table
                   addmargins(table) -> table
-                  for (i in 1:2)
-                  {
-                     if (table[i, 3] == table[i, 4])
-                     {
-                        if (table[i, 3] == table[4, 3])
-                        {
+                  for (i in 1:2){
+                     if (table[i, 3] == table[i, 4]){
+                        if (table[i, 3] == table[4, 3]){
                            cat("complete NA separation")
                         } else{
                            cat("uncomplete NA separation")
@@ -421,6 +414,20 @@ checkforfactor <-
 }
 
 
+plain <- function(vec){
+  if (is.character(vec)) {
+    accents <- c("[\\u00e9\\u00e8\\u00ea\\u00eb]"="e",
+                 "[\\u00e0\\u00e2]"="a",
+                 "[\\u00ef]"="i",
+                 "[\\u00f9\\u00fa\\u00fc]"="u",
+                 "[\\u00f4\\u00f6]"="o",
+                 "[\\u00f1]"="n",
+                 "[\\u00e6]"="ae")
+    vec <- stringr::str_to_lower(vec)
+    vec <- stringr::str_replace_all(vec,accents)
+  }
+  return(vec)
+}
 
 
 #' Data formating
@@ -432,50 +439,37 @@ checkforfactor <-
 #' @export
 #'
 #' @examples
-format_data <- function(DF,
-                        type=c("plain","no-plural"))
-{
+format_data <- function(DF, type=c("plain")) {
+  
    as.data.frame(DF) -> DF
    colnames(DF) -> colnamesDF
+   
+   
+   if ("plain" %in% type){
+     apply(DF,2,plain) -> DF
+     as.data.frame(DF) -> DF
+   }
+   
 
       for (i in 1:length(DF)) {
-         if ("plain" %in% type & is.character(DF[,i])) {
-            DF[,i] <- stringr::str_to_lower(DF[,i])
-            DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00e9\\u00e8\\u00ea\\u00eb]","e")
-            DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00e0\\u00e2]","a")
-            DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00ef]","i")
-            DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00f9\\u00fa\\u00fc]","u")
-            DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00f4\\u00f6]","o")
-            DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00f1]","n")
-            DF[,i] <- stringr::str_replace_all(DF[,i],"[\\u00e6]","ae")
-         }
 
-
-         if ("no-plural" %in% type & is.character(DF[, i]))
-         {
+         if ("no-plural" %in% type & is.character(DF[, i])) {
             string_levels <- levels(as.factor(DF[, i]))
-            for (level in string_levels)
-            {
+            for (level in string_levels){
                words1 <- stringr::str_split(level," ")[[1]]
-               for (level2 in string_levels[string_levels != level])
-               {
+               for (level2 in string_levels[string_levels != level]){
                   real_diff <- FALSE
                   words2 <- stringr::str_split(level2," ")[[1]]
-                  if (length(words1) == length(words2))
-                  {
-                     for (l in seq(words1))
-                     {
-                        if (!(words1[l] == words2[l] || words1[l] == paste0(words2[l],"s")))
-                        {
+                  if (length(words1) == length(words2)){
+                     for (l in seq(words1)) {
+                        if (!(words1[l] == words2[l] || words1[l] == paste0(words2[l],"s"))) {
                            real_diff <- TRUE
                         }
                      }
-                     if (real_diff == FALSE)
-                     {
+                     if (! real_diff) {
                         DF[,i][DF[,i] == level] <- level2
                         break
                      }
-
                   }
                }
             }
@@ -485,21 +479,16 @@ format_data <- function(DF,
             string_levels <- levels(as.factor(DF[, i]))
             for (level in string_levels) {
                words1 <- stringr::str_split(level," ")[[1]]
-               for (level2 in string_levels[string_levels != level])
-               {
+               for (level2 in string_levels[string_levels != level]){
                   real_diff <- FALSE
                   words2 <- stringr::str_split(level2," ")[[1]]
-                  if (length(words1) == length(words2))
-                  {
-                     for (l in seq(words1))
-                     {
-                        if (!(words1[l] == words2[l] || words1[l] == paste0(words2[l],"e")))
-                        {
+                  if (length(words1) == length(words2)){
+                     for (l in seq(words1)){
+                        if (!(words1[l] == words2[l] || words1[l] == paste0(words2[l],"e"))){
                            real_diff <- TRUE
                         }
                      }
-                     if (real_diff == FALSE)
-                     {
+                     if (! real_diff) {
                         DF[,i][DF[,i] == level] <- level2
                         break
                      }
@@ -508,27 +497,20 @@ format_data <- function(DF,
             }
       }
 
-         if ("no-femplu" %in% type & is.character(DF[, i]))
-         {
+         if ("no-femplu" %in% type & is.character(DF[, i])){
             string_levels <- levels(as.factor(DF[, i]))
-            for (level in string_levels)
-            {
+            for (level in string_levels) {
                words1 <- stringr::str_split(level," ")[[1]]
-               for (level2 in string_levels[string_levels != level])
-               {
+               for (level2 in string_levels[string_levels != level]) {
                   real_diff <- FALSE
                   words2 <- stringr::str_split(level2," ")[[1]]
-                  if (length(words1) == length(words2))
-                  {
-                     for (l in seq(words1))
-                     {
-                        if (!(words1[l] == words2[l] || words1[l] == paste0(words2[l],"es")))
-                        {
+                  if (length(words1) == length(words2)) {
+                     for (l in seq(words1)) {
+                        if (!(words1[l] == words2[l] || words1[l] == paste0(words2[l],"es"))) {
                            real_diff <- TRUE
                         }
                      }
-                     if (real_diff == FALSE)
-                     {
+                     if (! real_diff) {
                         DF[,i][DF[,i] == level] <- level2
                         break
                      }
@@ -536,13 +518,13 @@ format_data <- function(DF,
                }
             }
          }
+        
+        if (is.character(DF[, i])){
+          DF[,i] <- stringr::str_squish(DF[,i])
+          DF[,i] <- stringr::str_trim(DF[,i])
+        }
       }
 
-      if (is.character(DF[, i]))
-      {
-         DF[,i] <- stringr::str_squish(DF[,i])
-         DF[,i] <- stringr::str_trim(DF[,i])
-      }
 
       colnames(DF) <- colnamesDF
 
@@ -572,16 +554,17 @@ format_data <- function(DF,
 #'
 #' @examples
 data_prep_complete <- function(DF,
-                                 y=colnames(DF)[1],
-                                explicatives_matrix,
-                                 verbose = TRUE,
-                                 keep = FALSE)
+                               y=colnames(DF)[1],
+                               explicatives_matrix,
+                               verbose = TRUE,
+                               keep = FALSE)
 {
    DF <- as.data.frame(DF)
    DF1 <- DF
 
    # Caractere preparation
    DF <- format_data(DF)
+   explicatives_matrix[,6] <- plain(explicatives_matrix[,6])
    DF <- as.data.frame(DF)
 
    # Data prep of y
@@ -590,19 +573,25 @@ data_prep_complete <- function(DF,
 
    # get rid of NAs
    DF <- NA_rm_for_glm(DF,y,keep)
+   DF <- as.data.frame(DF)
 
    # Clean constant variables
    #DF <- checkforfactor(DF)
+   
    for (exp in explicatives_matrix$explicatives){
      exp <- explicatives_matrix[exp,]
      if (as.logical(exp[5])){
-       
-       tryCatch(relevel(as.factor(as.character(DF[,rownames(exp)])),as.character(exp[6])) -> DF[,rownames(exp)],
+             tryCatch(relevel(as.factor(as.character(DF[,rownames(exp)])),
+                              as.character(exp[6])) -> DF[,rownames(exp)],
                 error = function(e)
-                  stop(paste0("You tried to assign < ", as.character(exp[6])," > for the variable  <",rownames(exp)," > but it doesn't exists"))) -> var
-       
-       
-       
+                {
+                  print(as.character(exp[6]))
+                  print(DF[,rownames(exp)])
+                  stop(paste0("Ho no ! you tried to assign <", as.character(exp[6]),
+                              "> for the variable  <",rownames(exp),
+                              "> but it doesn't exists"))
+                }
+                  ) -> var
      }
    }
    
@@ -611,9 +600,15 @@ data_prep_complete <- function(DF,
    DF <- as.data.frame(DF)
 
    if (verbose) {
-      cat("\n",(nrow(DF1) - nrow(DF))," rows deleted (",round(100*(nrow(DF1) - nrow(DF))/(nrow(DF1)),0),"%)","...........",nrow(DF),"rows remaining")
-      cat("\n\nData cleaning is over.\n\nExplicatives variables remaining are :\n",explicatives,
-          "\n\nIt remains ",length(explicatives),"variables and ",nrow(DF),"observations")
+      cat("\n",(nrow(DF1) - nrow(DF)),
+          " rows deleted (",
+          round(100*(nrow(DF1) - nrow(DF))/(nrow(DF1)),0),"%)",
+          "...........",nrow(DF),"rows remaining")
+      cat("\n\nData cleaning is over.
+          \n\nExplicatives variables remaining are :\n",
+          explicatives,
+          "\n\nIt remains ",length(explicatives),
+          "variables and ",nrow(DF),"observations")
    }
 
    return(DF)
