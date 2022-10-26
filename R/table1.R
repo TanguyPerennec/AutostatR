@@ -60,6 +60,7 @@ table1 <- function(DF,
    #####
    if (is.data.frame(DF) || is.matrix(DF)) {
       DF <- as.data.frame(DF, row.names = NULL)
+      format_data(DF) -> DF
       if (any(make.names(colnames(DF)) != colnames(DF))) {
          message('Names are not fitted, names are generated')
          colnames(DF) <- colnames_prep(colnames(DF))
@@ -135,8 +136,7 @@ table1 <- function(DF,
    }
    if (!is.null(tests)){
       method <- tests
-      if("paired" %in% tests)
-         paired = TRUE
+      paired = "paired" %in% tests
       tests <- TRUE
    } else {
       tests <- paired <- method <- FALSE
@@ -250,16 +250,14 @@ table1 <- function(DF,
                                  ifelse(
                                     !any("quartile" %in% num_function) & !any("auto" %in% num_function),
                                     round(min(var, na.rm = TRUE), round),
-                                    round(quantile(var, na.rm = TRUE)[2], round)
-                                 ),
+                                    round(quantile(var, na.rm = TRUE)[2], round)),
                                  " - ",
                                  ifelse(
                                     !any("quartile" %in% num_function) & !any("auto" %in% num_function),
                                     round(max(var, na.rm = TRUE), round),
                                     round(quantile(var, na.rm = TRUE)[4], round)
                                  ),
-                                 "] "
-                              )
+                                 "] ")
          ligne_moyenne <- paste0(round(mean(var, na.rm = TRUE), round),
                                  " (", round(sd(var, na.rm = TRUE), round),")")
 
@@ -294,7 +292,7 @@ table1 <- function(DF,
                normal <- FALSE
             } else {
                shapiro_vars <- aggregate(var ~ DF[, y], FUN = "shapiro.test")
-               normal <- ! (any(shapiro_vars[, 2][, 2] < 0.05)) # si un test est positif => pas de normalit?
+               normal <- ! (any(shapiro_vars[, 2][, 2] < 0.05)) # si un test est positif => pas de normalite
             }
 
             # round and save all results
@@ -318,14 +316,11 @@ table1 <- function(DF,
                      "quartile" %in% num_function,
                      quartiles_vars_level[4],
                      max_vars_level),
-                  "] "
-                  )
+                  "] ")
 
                if (length(num_function) < 3 & !("auto" %in% num_function)) {
-                  ligne1 <-
-                     c(ligne1,
-                       ifelse("mean" %in% num_function,ligne_moyenne,ligne_mediane)
-                       )
+                  ligne1 <- c(ligne1,
+                       ifelse("mean" %in% num_function,ligne_moyenne,ligne_mediane))
                } else if ("auto" %in% num_function) {
                   ligne1 <- c(ligne1,ifelse(normal,ligne_moyenne,ligne_mediane))
                } else{
@@ -361,14 +356,12 @@ table1 <- function(DF,
                      variance_equal <- var.test(var ~ DF[, y])$p.value > 0.05
                   } else {
                      variance_equal <- FALSE
-                  }
-
-                  if (variance_equal) {
-                     p <- roundp(t.test(var ~ DF[, y], var.equal = TRUE)$p.value, round_p)
-                  } else{
-                     p <- roundp(t.test(var ~ DF[, y], var.equal = FALSE)$p.value,round_p)
                      p <- paste0(p, " (a)")
                   }
+
+                  p <- roundp(t.test(var ~ DF[, y], var.equal = variance_equal)$p.value, round_p)
+
+                  
                } else {
                   if (levels_y == 2){
                      withCallingHandlers(
@@ -429,7 +422,6 @@ table1 <- function(DF,
                         c(tab_1[tab_1[, "y_b"] == levels(DF$y_b)[1], varname], tab_1[tab_1[, "y_b"] == levels(DF$y_b)[2], varname]) -> DF_stratified[nrow, ] 
                      }
                   }
-
                   p <- t.test(DF_stratified[, 1], DF_stratified[, 2], paired = TRUE)$p.value
                   p <- roundp(p, round_p)
                   ligne1 <- c(ligne1, p)
@@ -462,13 +454,12 @@ table1 <- function(DF,
          var[var == "NA"] <- NA
          
          tryCatch(relevel(as.factor(as.character(var)),as.character(X[6])),
-                  error = function(e)
+                  error = function(e) {
+                    print(as.character(X[6]))
+                    print(DF[,varname])
                     stop(paste0("You tried to assign < ", as.character(X[6]),
                                 " > for the variable  <",varname,
-                                " > but it doesn't exists"))) -> var
-
-         
-
+                                " > but it doesn't exists"))}) -> var
 
          # if there is more than 'mutation' modalities, the last modalities are grouped in 'others' modality
          if (length(levels(var)) >= mutation) {
@@ -487,6 +478,7 @@ table1 <- function(DF,
             if (!is.null(y)) {
                tb <- table(DF[, y],var, useNA = "no")
                tbm <- margin.table(tb, 1)
+
 
                # conditions verification
                verif_level <- margin.table(table(var, DF[, y]), 2)
@@ -617,16 +609,16 @@ table1 <- function(DF,
                if (!is.null(y)) {
                   ligne1 <- c(ligne1,
                              sapply(1:levels_y, function(j) {
-                                paste0(tb[j, 1],
+                                paste0(tb[j, levels(var)[1]],
                                        " (",
-                                       round(100 * tb[j, 1] / tbm[j], round),
+                                       round(100 * tb[j, levels(var)[1]] / tbm[j], round),
                                        "%)")
                              }))
                }
 
                if (tests)
                   ligne1 <- c(ligne1, paste0(clig, sign))
-                 ligne1 -> ligne
+               ligne1 -> ligne
 
 
             } else { ## Variable with more than 2 levels #############################
@@ -634,7 +626,7 @@ table1 <- function(DF,
 
                ligne <- ifelse(as.logical(X[3]),
                                paste0(as.character(X[2]), " - no. (%)"),
-                              as.character(X[2]))[[1]]
+                               as.character(X[2]))[[1]]
 
 
                if (available_data)
@@ -659,30 +651,12 @@ table1 <- function(DF,
                            clig <- '-'
                            OR <- 1
                         } else {
-                           clig <-
-                              summary(
-                                 survival::clogit(
-                                    expression + strata(Strate),
-                                    data = DF_var,
-                                    family = "binomial"
-                                 )
-                              )$coefficients[n, 4]
-                           OR <-
-                              exp(summary(
-                                 survival::clogit(
-                                    expression + strata(Strate),
-                                    data = DF_var,
-                                    family = "binomial"
-                                 )
-                              )$coefficients[n, 1])
-                           IC <-
-                              exp(confint(
-                                 survival::clogit(
-                                    expression + strata(Strate),
-                                    data = DF_var,
-                                    family = "binomial"
-                                 )
-                              ))
+                          result <- survival::clogit(
+                            expression + strata(Strate),
+                            data = DF_var,family = "binomial")
+                           clig <- summary(result)$coefficients[n, 4]
+                           OR <- exp(summary(result)$coefficients[n, 1])
+                           IC <- exp(confint(result))
                            OR <- round(OR, round)
                            OR <- paste0(OR, ' (', IC[2, 1], '-', IC[2, 2], ')')
                            clig <- roundp(clig, round_p)
@@ -728,6 +702,7 @@ table1 <- function(DF,
                         ligne <- c(ligne, paste0(no, " (", pn, "%)"))
                      }
                   }
+                  
                   if (tests){
                      lignes_tot <- rbind(lignes_tot,c(ligne,clig))
                   } else {
@@ -757,7 +732,6 @@ table1 <- function(DF,
       xlsx::write.xlsx(
          rslt,
          paste0("table1", ".xlsx"),
-         sheetName = "name_sheet",
          append = FALSE,
          row.names = FALSE
       )

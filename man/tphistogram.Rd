@@ -4,7 +4,7 @@
 \alias{tphistogram}
 \title{Histogram}
 \usage{
-tphistogram(data, x, y, colors, interbins, ...)
+tphistogram(data, x, y, colors, position = "stack", ...)
 }
 \arguments{
 \item{data}{: dataframe}
@@ -15,9 +15,9 @@ tphistogram(data, x, y, colors, interbins, ...)
 
 \item{colors}{: character or vector of colors}
 
-\item{interbins}{: range for one bin}
+\item{position}{: identity, stack or dodge}
 
-\item{...}{}
+\item{...}{: other arguments to be passed through gghistogram}
 }
 \description{
 Histogram

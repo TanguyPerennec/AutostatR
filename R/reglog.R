@@ -17,7 +17,6 @@
 #' @param rowstimevariable : number of row per variable
 #' @param stability logical : wheter to perform the stability analysis
 #' @param equation logical : to show the equation of the regression function
-#' @param title 
 #'
 #' @return reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model
 #' @export
@@ -41,8 +40,7 @@ reglog <- function(DF,
             keep=FALSE,
             exit = "html",
             stability=FALSE,
-            equation = FALSE,
-            title = TRUE)
+            equation = FALSE)
    {
 
   library(MASS)
@@ -394,10 +392,6 @@ if (FALSE){
          rslt <- add_footer(rslt, variable = footer)
          rslt <- merge_at(rslt, j = 1:ncol(rslt2), part = "footer")
          rslt <- valign(rslt, valign = "bottom", part = "footer")
-         }
-
-         if (title & FALSE) {
-            rslt <- add_header_lines(rslt,paste0("Logistic regression for ", colnames_prep(y,type = "presentation")))
          }
 
          rslt <- theme_booktabs(rslt)

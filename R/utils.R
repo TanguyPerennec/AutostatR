@@ -1,5 +1,13 @@
 
-## Utils function
+#' Round for p value
+#'
+#' @param x : the p value
+#' @param n : number of digits
+#'
+#' @return
+#' @export
+#'
+#' @examples
 roundp <- function(x,n){
    x <- round(x,n)
    if (!is.na(x)){
@@ -13,12 +21,19 @@ roundp <- function(x,n){
 
 
 
-load_package <- function(pkgs,
-                         verbose = TRUE)
-{
+#' Load package
+#'
+#' @param pkgs : package to load
+#' @param verbose : (optional)
+#'
+#' @return
+#' @export
+#'
+#' @examples
+load_package <- function(pkgs,verbose = TRUE) {
    installed_packages <- pkgs %in% rownames(installed.packages())
 
-   if (any(installed_packages == FALSE)) {
+   if (any(! installed_packages)) {
       install.packages(pkgs[!installed_packages])
    }
 
@@ -47,11 +62,21 @@ load_package <- function(pkgs,
       cat("\n\nAlready loaded packages :",
           alp, sep = "\n   - ")
    }
-
-
 }
 
 
+#' Get y vector
+#'
+#' @param y 
+#' @param DF 
+#' @param name 
+#' @param y_test 
+#' @param names 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 get_y_vector <- function(y,
                          DF = NULL,
                          name = y,
@@ -127,8 +152,6 @@ get_explicatives_matrix <- function(explicatives,
        stop(paste0(explicatives[!explicatives %in% colnames(DF)],
                    " is not par of DF columns"))
      }
-     print(explicatives)
-     print(explicatives_matrix)
      
       explicatives_matrix$factor <- apply(DF[, explicatives], 2, function(x) {
                                               num <- sum(!is.na(as.numeric(x))) == sum(!is.na(x))
@@ -142,7 +165,7 @@ get_explicatives_matrix <- function(explicatives,
       explicatives_matrix$levels <- explicatives_matrix$labels <-
         sapply(explicatives,function(x)
             if (as.logical(explicatives_matrix[x,"factor"])){
-              levels(as.factor(as.character(DF[,x])))[1]
+              plain(levels(as.factor(as.character(DF[,x])))[1])
             } else{NA})
 
       if (length(complete_names) == 1) {

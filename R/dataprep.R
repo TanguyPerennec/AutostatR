@@ -414,6 +414,14 @@ checkforfactor <-
 }
 
 
+#' plain
+#'
+#' @param vec : vector to be formated
+#'
+#' @return
+#' @export
+#'
+#' @examples
 plain <- function(vec){
   if (is.character(vec)) {
     accents <- c("[\\u00e9\\u00e8\\u00ea\\u00eb]"="e",

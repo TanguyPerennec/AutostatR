@@ -17,8 +17,7 @@ reglog(
   keep = FALSE,
   exit = "html",
   stability = FALSE,
-  equation = FALSE,
-  title = TRUE
+  equation = FALSE
 )
 }
 \arguments{
@@ -48,8 +47,6 @@ Takes all columns but y from the dataframe if kept empty.}
 \item{stability}{logical : wheter to perform the stability analysis}
 
 \item{equation}{logical : to show the equation of the regression function}
-
-\item{title}{}
 }
 \value{
 reglog returns a matrix with all OR obtain from univariate model and OR obtain from the multivariate model

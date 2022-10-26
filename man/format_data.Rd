@@ -4,7 +4,7 @@
 \alias{format_data}
 \title{Data formating}
 \usage{
-format_data(DF, type = c("plain", "no-plural"))
+format_data(DF, type = c("plain"))
 }
 \arguments{
 \item{DF}{: the dataframe to format}

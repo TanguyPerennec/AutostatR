@@ -29,7 +29,7 @@ make_palette <- function(pal = c("few","RdBu"),
   }
   
   if (pal == "few"){
-    palette = few_pal(type)(n)
+    palette = ggthemes::few_pal(type)(n)
     if (show)
       scales::show_col(palette)
   } else{
@@ -146,10 +146,14 @@ tphistogram <- function(data, x, y, colors, position="stack",...) {
   } else{
     data[,y] <- as.factor(data[,y])
     n <- length(levels(data[,y]))
-    colors <- make_palette(n = n,type = "Dark",pal = "few")
+    if(missing(colors)){
+      colors <- make_palette(n = n,type = "Dark",pal = "few")
+    }
     gghistogram(data, x, palette = colors, color = y, fill = y,
                  position=position,...) -> p
   }
+  
+ 
   
   return(p)
 }
